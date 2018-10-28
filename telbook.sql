@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50524
 File Encoding         : 65001
 
-Date: 2017-05-24 17:57:25
+Date: 2018-10-28 15:44:20
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -31,15 +31,13 @@ CREATE TABLE `telbook_company` (
   `message` int(6) DEFAULT '0',
   PRIMARY KEY (`cid`),
   UNIQUE KEY `title` (`cname`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=gb2312 COMMENT='企业名称列表';
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=gb2312 COMMENT='企业名称列表';
 
 -- ----------------------------
 -- Records of telbook_company
 -- ----------------------------
-INSERT INTO `telbook_company` VALUES ('1', '隆昌二中', '1', '2', '1463908072', '365', '0', '0', '9');
+INSERT INTO `telbook_company` VALUES ('1', '隆昌二中', '1', '2', '1463908072', '365', '0', '0', '19');
 INSERT INTO `telbook_company` VALUES ('20', '隆昌一中', '1', '1', '1463910552', '366', '0', '0', '0');
-INSERT INTO `telbook_company` VALUES ('22', '隆昌3中', '1', '3', '1463975531', '365', '0', '0', '0');
-INSERT INTO `telbook_company` VALUES ('23', '隆昌七中', '1', '7', '1491996719', '365', '0', '0', '0');
 
 -- ----------------------------
 -- Table structure for `telbook_department`
@@ -58,7 +56,7 @@ CREATE TABLE `telbook_department` (
 -- Records of telbook_department
 -- ----------------------------
 INSERT INTO `telbook_department` VALUES ('10001', '行政办', '1', '2', '1');
-INSERT INTO `telbook_department` VALUES ('10002', '教务处', '1', '1', '1');
+INSERT INTO `telbook_department` VALUES ('10002', '教务处', '1', '3', '1');
 INSERT INTO `telbook_department` VALUES ('10003', '总务处', '1', '1', '1');
 INSERT INTO `telbook_department` VALUES ('10004', '教科室', '1', '1', '1');
 INSERT INTO `telbook_department` VALUES ('10005', '政教处', '1', '1', '1');
@@ -78,17 +76,20 @@ CREATE TABLE `telbook_group` (
   `title` char(50) NOT NULL COMMENT '组名称',
   `status` int(1) NOT NULL DEFAULT '1' COMMENT '状态',
   `rules` varchar(200) NOT NULL COMMENT '权限',
+  `cid` int(6) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `title` (`title`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=gb2312 COMMENT='用户组';
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=gb2312 COMMENT='用户组';
 
 -- ----------------------------
 -- Records of telbook_group
 -- ----------------------------
-INSERT INTO `telbook_group` VALUES ('1', '超级管理员', '1', '');
-INSERT INTO `telbook_group` VALUES ('2', '企业管理员', '1', '26,28,27,25,42,41,58,39,45,47,46,44,34,36,53,49,38,35,52,33,48,54,51,56,57,40,55');
-INSERT INTO `telbook_group` VALUES ('3', '部门管理员', '1', '58,39,34,36,53,38,35,52,33,48,54,51,56,57,40,55');
-INSERT INTO `telbook_group` VALUES ('5', '部门成员', '1', '58,39,38,35,33,48,40');
+INSERT INTO `telbook_group` VALUES ('1', '超级管理员', '1', '', '0');
+INSERT INTO `telbook_group` VALUES ('2', '企业管理员', '1', '23,21,26,28,27,25,42,41,30,32,31,29,58,39,45,47,46,44,65,64,63,67,66,34,36,50,53,49,38,35,33,48,40,55', '0');
+INSERT INTO `telbook_group` VALUES ('3', '部门管理员', '1', '58,39,65,64,63,67,66,34,36,38,35,33,48,40', '0');
+INSERT INTO `telbook_group` VALUES ('5', '部门成员', '1', '58,39,38,35,33,48,40', '0');
+INSERT INTO `telbook_group` VALUES ('7', '主任', '1', '26,28,27,25', '1');
+INSERT INTO `telbook_group` VALUES ('8', '副主任', '1', '27', '20');
 
 -- ----------------------------
 -- Table structure for `telbook_job`
@@ -135,54 +136,20 @@ CREATE TABLE `telbook_messagelog` (
   `sendfalse` int(4) DEFAULT NULL,
   `errlist` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=gb2312;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=gb2312;
 
 -- ----------------------------
 -- Records of telbook_messagelog
 -- ----------------------------
-INSERT INTO `telbook_messagelog` VALUES ('1', null, '10', '陈晨', '1495457160', '0.0.0.0', '今天下午不上班！', '13629001634,13568012566,13990522877,13458876269,13990522888,13458899304,13890589629,13678321207,15883272588', '9', null, null, null);
-INSERT INTO `telbook_messagelog` VALUES ('2', null, '10', '陈晨', '1495457886', '0.0.0.0', '明天不上班啦！', '13629001634,13568012566,13990522877,13458876269,13990522888,13458899304,13890589629,13678321207,15883272588', '9', null, null, null);
-INSERT INTO `telbook_messagelog` VALUES ('3', null, '10', '陈晨', '1495458047', '0.0.0.0', '明天不上班！', '13629001634,13568012566,13990522877,13458876269,13990522888,13458899304,13890589629,13678321207,15883272588', '9', null, null, null);
-INSERT INTO `telbook_messagelog` VALUES ('4', null, '10', '陈晨', '1495458062', '0.0.0.0', '明天不上班2！', '13629001634,13568012566,13990522877,13458876269,13990522888,13458899304,13890589629,13678321207,15883272588', '9', null, null, null);
-INSERT INTO `telbook_messagelog` VALUES ('5', null, '142', '郭坚', '1495506682', '0.0.0.0', '123123123123', '13990522877,13458876269,13990522888,13458899304,13890589629,13678321207,15883272588,13629001634,13568012566,15908358226', '10', null, null, null);
-INSERT INTO `telbook_messagelog` VALUES ('6', '1', '142', '郭坚', '1495506903', '0.0.0.0', '啊撒旦发射点法 ', '13990522877,13458876269,13990522888,13458899304,13890589629,13678321207,15883272588,13629001634,13568012566,15908358226', '10', null, null, null);
-INSERT INTO `telbook_messagelog` VALUES ('7', '1', '142', '郭坚', '1495508236', '0.0.0.0', 'aaaaaaaaaa', '13990522877,13458876269,13990522888,13458899304,13890589629,13678321207,15883272588,13629001634,13568012566,15908358226', '10', null, null, null);
-INSERT INTO `telbook_messagelog` VALUES ('8', '0', '10', '陈晨', '1495526413', '0.0.0.0', '123321', '13890520679', '1', null, null, null);
-INSERT INTO `telbook_messagelog` VALUES ('9', '0', '10', '陈晨', '1495526613', '0.0.0.0', '', '13890520679', '1', null, null, null);
-INSERT INTO `telbook_messagelog` VALUES ('10', '0', '10', '陈晨', '1495526637', '0.0.0.0', '123123', '13890520679', '1', null, null, null);
-INSERT INTO `telbook_messagelog` VALUES ('11', '0', '10', '陈晨', '1495526680', '0.0.0.0', '123123', '13890520679', '1', null, null, null);
-INSERT INTO `telbook_messagelog` VALUES ('12', '0', '10', '陈晨', '1495526724', '0.0.0.0', '123123', '13890520679', '1', null, null, null);
-INSERT INTO `telbook_messagelog` VALUES ('13', '0', '10', '陈晨', '1495526798', '0.0.0.0', '123123', '13890520679', '1', null, null, null);
-INSERT INTO `telbook_messagelog` VALUES ('14', '0', '10', '陈晨', '1495526836', '0.0.0.0', '123123', '13890520679', '1', null, null, null);
-INSERT INTO `telbook_messagelog` VALUES ('15', '0', '10', '陈晨', '1495526878', '0.0.0.0', '123123', '13890520679', '1', null, null, null);
-INSERT INTO `telbook_messagelog` VALUES ('16', '0', '10', '陈晨', '1495526902', '0.0.0.0', '123123', '13890520679', '1', null, null, null);
-INSERT INTO `telbook_messagelog` VALUES ('17', '0', '10', '陈晨', '1495527177', '0.0.0.0', '【雾色船城】{办公室}通知：{今天下午不上班！}。请相互转告！ 请勿回复！', '13890520679', '1', null, null, null);
-INSERT INTO `telbook_messagelog` VALUES ('18', '0', '10', '陈晨', '1495529318', '0.0.0.0', '123321。', '13890520679', '1', null, null, null);
-INSERT INTO `telbook_messagelog` VALUES ('19', null, '10', '陈晨', '1495537774', '0.0.0.0', '【雾色船城】您的订单【前缀】已经处理完成，货物即将发出，请于近【内容】日内查收。', '13890520679', '1', '1', '0', null);
-INSERT INTO `telbook_messagelog` VALUES ('20', null, '10', '陈晨', '1495537944', '0.0.0.0', '【雾色船城】您的订单【前缀】已经处理完成，货物即将发出，请于近【内容】日内查收。', '13890520679', '1', '1', '0', null);
-INSERT INTO `telbook_messagelog` VALUES ('21', null, '10', '陈晨', '1495538119', '0.0.0.0', '【雾色船城】您的订单【前缀】已经处理完成，货物即将发出，请于近【内容】日内查收。', '13890520679,11111111111', '2', '1', '1', null);
-INSERT INTO `telbook_messagelog` VALUES ('22', null, '10', '陈晨', '1495539538', '0.0.0.0', '【雾色船城】您的订单【前缀】已经处理完成，货物即将发出，请于近【内容】日内查收。', '13890520679,11122233344', '2', '1', '1', null);
-INSERT INTO `telbook_messagelog` VALUES ('23', null, '10', '陈晨', '1495539628', '0.0.0.0', '【雾色船城】您的订单【前缀】已经处理完成，货物即将发出，请于近【内容】日内查收。', '13890520679,11111111111', '2', '1', '1', null);
-INSERT INTO `telbook_messagelog` VALUES ('24', null, '10', '陈晨', '1495539696', '0.0.0.0', '【雾色船城】您的订单【前缀】已经处理完成，货物即将发出，请于近【内容】日内查收。', '13890520679,11111111111', '2', '1', '1', null);
-INSERT INTO `telbook_messagelog` VALUES ('25', null, '10', '陈晨', '1495544020', '0.0.0.0', '【雾色船城】您的订单【前缀】已经处理完成，货物即将发出，请于近【内容】日内查收。', '15984283875,13890520679,11122233344', '3', '2', '1', null);
-INSERT INTO `telbook_messagelog` VALUES ('26', null, '10', '陈晨', '1495544503', '0.0.0.0', '【雾色船城】您的订单【前缀】已经处理完成，货物即将发出，请于近下班啦！日内查收。', '18990525075,11122233344', '2', '1', '1', null);
-INSERT INTO `telbook_messagelog` VALUES ('27', null, '10', '陈晨', '1495544736', '0.0.0.0', '【雾色船城】您的订单【前缀】已经处理完成，货物即将发出，请于近下班啦！日内查收。', '18990525075,11122233344', '2', '1', '1', null);
-INSERT INTO `telbook_messagelog` VALUES ('28', null, '10', '陈晨', '1495544822', '0.0.0.0', '【雾色船城】您的订单【前缀】已经处理完成，货物即将发出，请于近下班啦！日内查收。', '18990525075,11122233344', '2', '1', '1', null);
-INSERT INTO `telbook_messagelog` VALUES ('29', null, '10', '陈晨', '1495546944', '0.0.0.0', '【雾色船城】您的订单【前缀】已经处理完成，货物即将发出，请于近【内容123】日内查收。', '13890520679,15984283875,18990525075,11122233344', '4', '3', '1', null);
-INSERT INTO `telbook_messagelog` VALUES ('30', null, '10', '陈晨', '1495547745', '0.0.0.0', '【雾色船城】您的订单【前缀】已经处理完成，货物即将发出，请于近【内容123】日内查收。', '18990525075,11122233344', '2', '1', '1', '');
-INSERT INTO `telbook_messagelog` VALUES ('31', null, '10', '陈晨', '1495547892', '0.0.0.0', '【雾色船城】您的订单【前缀】已经处理完成，货物即将发出，请于近【内容333】日内查收。', '18990525075,11122233344', '2', '1', '1', '');
-INSERT INTO `telbook_messagelog` VALUES ('32', null, '10', '陈晨', '1495548033', '0.0.0.0', '【雾色船城】您的订单【前缀】已经处理完成，货物即将发出，请于近内容111日内查收。', '18990525075,11122233344,12233344455', '3', '1', '2', '');
-INSERT INTO `telbook_messagelog` VALUES ('33', null, '10', '陈晨', '1495548059', '0.0.0.0', '【雾色船城】您的订单【前缀】已经处理完成，货物即将发出，请于近内容111日内查收。', '18990525075,11122233344,12233344455', '3', '1', '2', '');
-INSERT INTO `telbook_messagelog` VALUES ('34', null, '10', '陈晨', '1495548147', '0.0.0.0', '【雾色船城】您的订单【前缀】已经处理完成，货物即将发出，请于近内容111日内查收。', '18990525075,11122233344,12233344455', '3', '1', '2', '');
-INSERT INTO `telbook_messagelog` VALUES ('35', null, '10', '陈晨', '1495548243', '0.0.0.0', '【雾色船城】您的订单【前缀】已经处理完成，货物即将发出，请于近内容222日内查收。', '18990525075,11122233344,12233344455', '3', '1', '2', ' ');
-INSERT INTO `telbook_messagelog` VALUES ('36', null, '10', '陈晨', '1495548353', '0.0.0.0', '【雾色船城】您的订单【前缀】已经处理完成，货物即将发出，请于近内容333日内查收。', '18990525075,11122233344,12233344455', '3', '1', '2', ' ');
-INSERT INTO `telbook_messagelog` VALUES ('37', null, '10', '陈晨', '1495548455', '0.0.0.0', '【雾色船城】您的订单【前缀】已经处理完成，货物即将发出，请于近内容444日内查收。', '18990525075,11122233344,12233344455', '3', '1', '2', ' 错误电话:11122233344,错误代码:00025;错误电话:12233344455,错误代码:00025');
-INSERT INTO `telbook_messagelog` VALUES ('38', null, '10', '陈晨', '1495548557', '0.0.0.0', '【雾色船城】您的订单【前缀】已经处理完成，货物即将发出，请于近内容666日内查收。', '18990525075,11122233344,12233344455', '3', '1', '2', '错误电话:11122233344,错误代码:00025;错误电话:12233344455,错误代码:00025');
-INSERT INTO `telbook_messagelog` VALUES ('39', '1', '10', '陈晨', '1495588811', '0.0.0.0', '++增加短信', null, '1', null, null, null);
-INSERT INTO `telbook_messagelog` VALUES ('40', '1', '10', '陈晨', '1495590251', '0.0.0.0', '++增加短信', null, '-12', null, null, null);
-INSERT INTO `telbook_messagelog` VALUES ('41', null, '10', '陈晨', '1495590645', '0.0.0.0', '【雾色船城】您的订单【前缀】已经处理完成，货物即将发出，请于近【内容】日内查收。', '13890520679,11111111111', '2', '1', '1', '错误电话:11111111111,错误代码:00025');
-INSERT INTO `telbook_messagelog` VALUES ('42', '1', '10', '陈晨', '1495590743', '0.0.0.0', '++增加短信', null, '11', null, null, null);
-INSERT INTO `telbook_messagelog` VALUES ('43', '1', '142', '郭坚', '1495592515', '0.0.0.0', '【雾色船城】您的订单【教务处】已经处理完成，货物即将发出，请于近【内容】日内查收。', '13890520679,13890589629', '2', '2', '0', null);
+INSERT INTO `telbook_messagelog` VALUES ('46', '1', '10', '陈晨', '1498489750', '0.0.0.0', '++增加短信', null, '16', null, null, null);
+INSERT INTO `telbook_messagelog` VALUES ('47', '1', '10', '陈晨', '1498489856', '0.0.0.0', '++增加短信', null, '1', null, null, null);
+INSERT INTO `telbook_messagelog` VALUES ('48', '1', '10', '陈晨', '1498489872', '0.0.0.0', '++增加短信', null, '-11', null, null, null);
+INSERT INTO `telbook_messagelog` VALUES ('50', '1', '10', '陈晨', '1498489914', '0.0.0.0', '++增加短信', null, '17', null, null, null);
+INSERT INTO `telbook_messagelog` VALUES ('51', '1', '10', '陈晨', '1498489949', '0.0.0.0', '++增加短信', null, '1', null, null, null);
+INSERT INTO `telbook_messagelog` VALUES ('52', '1', '10', '陈晨', '1498490000', '0.0.0.0', '++增加短信', null, '2', null, null, null);
+INSERT INTO `telbook_messagelog` VALUES ('54', '1', '10', '陈晨', '1498490166', '0.0.0.0', '++增加短信', null, '2', null, null, null);
+INSERT INTO `telbook_messagelog` VALUES ('56', '20', '10', '陈晨', '1498490467', '0.0.0.0', '++增加短信', null, '-18', null, null, null);
+INSERT INTO `telbook_messagelog` VALUES ('57', null, '10', '陈晨', '1499065968', '0.0.0.0', '【雾色船城】您的订单123123已经处理完成，货物即将发出，请于近3日内查收。', '13890520679,15884283875,13890520679,13628131668,13458876269,13990522888,13458899304,13890589629,13678321207,15883272588,13629001634,13568012566,15908358226,13990522751,13981430565,13568027815,18783280573,15828827465,15283276937,15983261941,13696031461,18040422157,15984281790,18181606570,15908250990,13730787361,13438645137,15884851927,18280911761,18990590280,13890503939,15828845141,13890503175,13989104789,15808320601,13628130275,13548327478', '37', '37', null, null);
 
 -- ----------------------------
 -- Table structure for `telbook_middle`
@@ -199,9 +166,46 @@ CREATE TABLE `telbook_middle` (
 -- ----------------------------
 -- Records of telbook_middle
 -- ----------------------------
-INSERT INTO `telbook_middle` VALUES ('215', '2');
-INSERT INTO `telbook_middle` VALUES ('216', '3');
-INSERT INTO `telbook_middle` VALUES ('217', '5');
+INSERT INTO `telbook_middle` VALUES ('10', '1');
+INSERT INTO `telbook_middle` VALUES ('221', '2');
+INSERT INTO `telbook_middle` VALUES ('222', '5');
+INSERT INTO `telbook_middle` VALUES ('223', '5');
+INSERT INTO `telbook_middle` VALUES ('224', '5');
+INSERT INTO `telbook_middle` VALUES ('225', '5');
+INSERT INTO `telbook_middle` VALUES ('226', '5');
+INSERT INTO `telbook_middle` VALUES ('227', '5');
+INSERT INTO `telbook_middle` VALUES ('228', '5');
+INSERT INTO `telbook_middle` VALUES ('229', '5');
+INSERT INTO `telbook_middle` VALUES ('230', '5');
+INSERT INTO `telbook_middle` VALUES ('231', '5');
+INSERT INTO `telbook_middle` VALUES ('232', '5');
+INSERT INTO `telbook_middle` VALUES ('233', '5');
+INSERT INTO `telbook_middle` VALUES ('234', '5');
+INSERT INTO `telbook_middle` VALUES ('235', '5');
+INSERT INTO `telbook_middle` VALUES ('236', '5');
+INSERT INTO `telbook_middle` VALUES ('237', '5');
+INSERT INTO `telbook_middle` VALUES ('238', '5');
+INSERT INTO `telbook_middle` VALUES ('239', '5');
+INSERT INTO `telbook_middle` VALUES ('240', '5');
+INSERT INTO `telbook_middle` VALUES ('241', '5');
+INSERT INTO `telbook_middle` VALUES ('242', '5');
+INSERT INTO `telbook_middle` VALUES ('243', '5');
+INSERT INTO `telbook_middle` VALUES ('244', '5');
+INSERT INTO `telbook_middle` VALUES ('245', '5');
+INSERT INTO `telbook_middle` VALUES ('246', '5');
+INSERT INTO `telbook_middle` VALUES ('247', '5');
+INSERT INTO `telbook_middle` VALUES ('248', '5');
+INSERT INTO `telbook_middle` VALUES ('249', '5');
+INSERT INTO `telbook_middle` VALUES ('250', '5');
+INSERT INTO `telbook_middle` VALUES ('251', '5');
+INSERT INTO `telbook_middle` VALUES ('252', '5');
+INSERT INTO `telbook_middle` VALUES ('253', '5');
+INSERT INTO `telbook_middle` VALUES ('254', '5');
+INSERT INTO `telbook_middle` VALUES ('255', '5');
+INSERT INTO `telbook_middle` VALUES ('256', '5');
+INSERT INTO `telbook_middle` VALUES ('257', '2');
+INSERT INTO `telbook_middle` VALUES ('258', '3');
+INSERT INTO `telbook_middle` VALUES ('259', '5');
 
 -- ----------------------------
 -- Table structure for `telbook_rule`
@@ -216,7 +220,7 @@ CREATE TABLE `telbook_rule` (
   `condition` char(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of telbook_rule
@@ -225,11 +229,11 @@ INSERT INTO `telbook_rule` VALUES ('21', 'Home/Company/index', '企业列表管�
 INSERT INTO `telbook_rule` VALUES ('22', 'Home/Company/add', '添加企业', '1', '1', '');
 INSERT INTO `telbook_rule` VALUES ('23', 'Home/Company/edit', '修改企业', '1', '1', '');
 INSERT INTO `telbook_rule` VALUES ('24', 'Home/Company/del', '删除企业', '1', '1', '');
-INSERT INTO `telbook_rule` VALUES ('25', 'Home/Department/index', '部门列表管理首页', '1', '1', '');
+INSERT INTO `telbook_rule` VALUES ('25', 'Home/Department/index', '部门列表首页', '1', '1', '');
 INSERT INTO `telbook_rule` VALUES ('26', 'Home/Department/add', '添加部门', '1', '1', '');
 INSERT INTO `telbook_rule` VALUES ('27', 'Home/Department/edit', '修改部门', '1', '1', '');
 INSERT INTO `telbook_rule` VALUES ('28', 'Home/Department/del', '删除部门', '1', '1', '');
-INSERT INTO `telbook_rule` VALUES ('29', 'Home/Group/index', '用户组管理首页', '1', '1', '');
+INSERT INTO `telbook_rule` VALUES ('29', 'Home/Group/index', '用户组首页', '1', '1', '');
 INSERT INTO `telbook_rule` VALUES ('30', 'Home/Group/add', '添加用户组', '1', '1', '');
 INSERT INTO `telbook_rule` VALUES ('31', 'Home/Group/edit', '修改用户组', '1', '1', '');
 INSERT INTO `telbook_rule` VALUES ('32', 'Home/Group/del', '删除用户组', '1', '1', '');
@@ -243,8 +247,8 @@ INSERT INTO `telbook_rule` VALUES ('39', 'Home/Index/index', '登陆后台首页
 INSERT INTO `telbook_rule` VALUES ('40', 'Home/User/showlist', '通讯录', '1', '1', '');
 INSERT INTO `telbook_rule` VALUES ('41', 'Home/Excel/writeexcel', '导入excel数据', '1', '1', '');
 INSERT INTO `telbook_rule` VALUES ('42', 'Home/Excel/readexcel', '导出excel数据', '1', '1', '');
-INSERT INTO `telbook_rule` VALUES ('43', 'Home/Department/setMaster', '设置部门管理员', '1', '1', '');
-INSERT INTO `telbook_rule` VALUES ('44', 'Home/Job/index', '职务管理首页', '1', '1', '');
+INSERT INTO `telbook_rule` VALUES ('62', 'Home/Company/message', '添加短信', '1', '1', '');
+INSERT INTO `telbook_rule` VALUES ('44', 'Home/Job/index', '职务列表首页', '1', '1', '');
 INSERT INTO `telbook_rule` VALUES ('45', 'Home/Job/add', '添加职务', '1', '1', '');
 INSERT INTO `telbook_rule` VALUES ('46', 'Home/Job/edit', '修改职务', '1', '1', '');
 INSERT INTO `telbook_rule` VALUES ('47', 'Home/Job/del', '删除职务', '1', '1', '');
@@ -259,6 +263,11 @@ INSERT INTO `telbook_rule` VALUES ('55', 'Home/User/showmessagelog', '显示日�
 INSERT INTO `telbook_rule` VALUES ('56', 'Home/User/sendmessage', '发送短信', '1', '1', '');
 INSERT INTO `telbook_rule` VALUES ('57', 'Home/User/sendpost', '发送post', '1', '1', '');
 INSERT INTO `telbook_rule` VALUES ('58', 'Home/Index/delruntime', '清除缓存', '1', '1', '');
+INSERT INTO `telbook_rule` VALUES ('63', 'Home/Message/savelist', '保存发送列表', '1', '1', '');
+INSERT INTO `telbook_rule` VALUES ('64', 'Home/Message/getlist', '准备发送短信', '1', '1', '');
+INSERT INTO `telbook_rule` VALUES ('65', 'Home/Message/dellist', '删除发送列表', '1', '1', '');
+INSERT INTO `telbook_rule` VALUES ('66', 'Home/Message/showmessagelog', '显示日志列表', '1', '1', '');
+INSERT INTO `telbook_rule` VALUES ('67', 'Home/Message/sendmessage', '发送短信', '1', '1', '');
 
 -- ----------------------------
 -- Table structure for `telbook_tel`
@@ -276,14 +285,50 @@ CREATE TABLE `telbook_tel` (
   `uptime` char(20) NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`tid`),
   UNIQUE KEY `uid` (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=196 DEFAULT CHARSET=gb2312 COMMENT='用户电话表';
+) ENGINE=InnoDB AUTO_INCREMENT=238 DEFAULT CHARSET=gb2312 COMMENT='用户电话表';
 
 -- ----------------------------
 -- Records of telbook_tel
 -- ----------------------------
-INSERT INTO `telbook_tel` VALUES ('193', '215', '66069', '13890520679', '', '', '', null, '1495619449');
-INSERT INTO `telbook_tel` VALUES ('194', '216', '66068', '18990525075', '', '', '', null, '1495619499');
-INSERT INTO `telbook_tel` VALUES ('195', '217', '63875', '15984283875', '', '', '', null, '1495619532');
+INSERT INTO `telbook_tel` VALUES ('199', '221', '111', '111', '111', '111', '111', '111', '1498702120');
+INSERT INTO `telbook_tel` VALUES ('200', '222', '666666', null, null, null, null, null, '1498702844');
+INSERT INTO `telbook_tel` VALUES ('201', '223', '612269', '13458876269', '3990992', null, null, null, '1498702844');
+INSERT INTO `telbook_tel` VALUES ('202', '224', '612888', '13990522888', '3942753', null, null, null, '1498702844');
+INSERT INTO `telbook_tel` VALUES ('203', '225', null, '13458899304', null, null, null, null, '1498702844');
+INSERT INTO `telbook_tel` VALUES ('204', '226', '640629', '13890589629', null, null, null, null, '1498702844');
+INSERT INTO `telbook_tel` VALUES ('205', '227', null, '13678321207', '3942911', null, null, null, '1498702844');
+INSERT INTO `telbook_tel` VALUES ('206', '228', '612588', '15883272588', '3916198', null, null, '2918479846', '1498702844');
+INSERT INTO `telbook_tel` VALUES ('207', '229', '612634', '13629001634', null, null, null, '1598309217', '1498702844');
+INSERT INTO `telbook_tel` VALUES ('208', '230', '612566', '13568012566', null, null, null, null, '1498702844');
+INSERT INTO `telbook_tel` VALUES ('209', '231', '612266', '15908358226', '3942341', null, null, null, '1498702844');
+INSERT INTO `telbook_tel` VALUES ('210', '232', '612222', '13990522751', null, null, null, '261014450', '1498702844');
+INSERT INTO `telbook_tel` VALUES ('211', '233', '612565', '13981430565', null, null, null, '843656540', '1498702844');
+INSERT INTO `telbook_tel` VALUES ('212', '234', '612815', '13568027815', null, null, null, '1312919247', '1498702844');
+INSERT INTO `telbook_tel` VALUES ('213', '235', '670573', '18783280573', null, null, null, '1150472507', '1498702844');
+INSERT INTO `telbook_tel` VALUES ('214', '236', '612465', '15828827465', null, null, null, '1106589882', '1498702844');
+INSERT INTO `telbook_tel` VALUES ('215', '237', '612937', '15283276937', null, null, null, '314982167', '1498702844');
+INSERT INTO `telbook_tel` VALUES ('216', '238', '612941', '15983261941', null, null, null, '674605210', '1498702844');
+INSERT INTO `telbook_tel` VALUES ('217', '239', '612461', '13696031461', null, null, null, '569828243', '1498702844');
+INSERT INTO `telbook_tel` VALUES ('218', '240', null, '18040422157', null, null, null, '523582190', '1498702844');
+INSERT INTO `telbook_tel` VALUES ('219', '241', '612790', '15984281790', null, null, null, '395053432', '1498702844');
+INSERT INTO `telbook_tel` VALUES ('220', '242', null, '18181606570', null, null, null, '1670319775', '1498702844');
+INSERT INTO `telbook_tel` VALUES ('221', '243', '670990', '15908250990', null, null, null, '294112970', '1498702844');
+INSERT INTO `telbook_tel` VALUES ('222', '244', null, '13730787361', null, null, null, '503358453', '1498702844');
+INSERT INTO `telbook_tel` VALUES ('223', '245', '642137', '13438645137', null, null, null, '654060824', '1498702844');
+INSERT INTO `telbook_tel` VALUES ('224', '246', '622227', '15884851927', null, null, null, '278064586', '1498702844');
+INSERT INTO `telbook_tel` VALUES ('225', '247', '612761', '18280911761', null, null, null, '417511655', '1498702844');
+INSERT INTO `telbook_tel` VALUES ('226', '248', '670550', '18990590280', null, null, null, '176160413', '1498702844');
+INSERT INTO `telbook_tel` VALUES ('227', '249', '612939', '13890503939', null, null, null, '1760925317', '1498702844');
+INSERT INTO `telbook_tel` VALUES ('228', '250', '612141', '15828845141', null, null, null, '819151771', '1498702844');
+INSERT INTO `telbook_tel` VALUES ('229', '251', '612175', '13890503175', null, null, null, '1397633084', '1498702844');
+INSERT INTO `telbook_tel` VALUES ('230', '252', '612189', '13989104789', null, null, null, '284584909', '1498702844');
+INSERT INTO `telbook_tel` VALUES ('231', '253', '620601', '15808320601', null, null, null, '954599086', '1498702844');
+INSERT INTO `telbook_tel` VALUES ('232', '254', '612275', '13628130275', null, null, null, '369949674', '1498702844');
+INSERT INTO `telbook_tel` VALUES ('233', '255', '66778', '13548327478', null, null, null, '37008321', '1498702844');
+INSERT INTO `telbook_tel` VALUES ('234', '256', '612333', '13628131668', '3945535', null, null, '36140659', '1498702844');
+INSERT INTO `telbook_tel` VALUES ('235', '257', '13890520679', '13890520679', '13890520679', '13890520679', '13890520679', '13890520679', '1499003411');
+INSERT INTO `telbook_tel` VALUES ('236', '258', '15884283875', '15884283875', '15884283875', '15884283875', '15884283875', '15884283875', '1499003451');
+INSERT INTO `telbook_tel` VALUES ('237', '259', '13890520679', '13890520679', '13890520679', '111', '111', '111', '1499003515');
 
 -- ----------------------------
 -- Table structure for `telbook_user`
@@ -303,12 +348,9 @@ CREATE TABLE `telbook_user` (
   `creater` char(20) NOT NULL COMMENT '创建者',
   PRIMARY KEY (`uid`),
   UNIQUE KEY `card` (`card`)
-) ENGINE=InnoDB AUTO_INCREMENT=218 DEFAULT CHARSET=gb2312 COMMENT='用户列表';
+) ENGINE=InnoDB AUTO_INCREMENT=260 DEFAULT CHARSET=gb2312 COMMENT='用户列表';
 
 -- ----------------------------
 -- Records of telbook_user
 -- ----------------------------
-INSERT INTO `telbook_user` VALUES ('10', '陈晨', '13890520679', '21232f297a57a5a743894a0e4a801fc3', '1', '1495537127', '', null, null, '1', '');
-INSERT INTO `telbook_user` VALUES ('215', '陈晨2', '66069', 'c70f6b25d708ccc79f5a0a0adbd6ad6e', '1', '1495619449', '1', '.10008.,.10004.', '.6.,.7.', '2', '陈晨');
-INSERT INTO `telbook_user` VALUES ('216', '陈晨3', '66068', '70f3d0c806f885844bce94603ccb8019', '1', '1495619499', '1', '.10007.,.10003.', null, '3', '陈晨');
-INSERT INTO `telbook_user` VALUES ('217', '周翠英', '63875', '17b8be16da7f54156a14daa215f0d1d8', '1', '1495619532', '1', '.10011.,.10001.', '.4.,.5.', '5', '陈晨');
+INSERT INTO `telbook_user` VALUES ('10', 'admin', '66069', '21232f297a57a5a743894a0e4a801fc3', '1', '1540712437', '1', null, null, '1', '');
