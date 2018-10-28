@@ -662,3 +662,266 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001156s ]
 INFO: [ app_end ] --END-- [ RunTime:0.001262s ]
 
+[ 2018-10-28T15:49:48+08:00 ] 127.0.0.1 /thinkphp/tel/index.php/Home/Importrules/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000478s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000586s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000686s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000153s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000371s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.030731s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030945s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000738s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000897s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001954s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002135s ]
+
+[ 2018-10-28T15:49:56+08:00 ] 127.0.0.1 /thinkphp/tel/index.php/Home/Importrules/index/do/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001013s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001044s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001189s ]
+SQL: SHOW COLUMNS FROM `telbook_rule` [ RunTime:0.0173s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/Company/index" )  [ RunTime:0.0012s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/Company/index',`title`='企业列表管理首页' WHERE ( name="Home/Company/index" ) [ RunTime:0.0005s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/Company/add" )  [ RunTime:0.0005s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/Company/add',`title`='添加企业' WHERE ( name="Home/Company/add" ) [ RunTime:0.0004s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/Company/edit" )  [ RunTime:0.0005s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/Company/edit',`title`='修改企业' WHERE ( name="Home/Company/edit" ) [ RunTime:0.0004s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/Company/message" )  [ RunTime:0.0006s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/Company/message',`title`='添加短信' WHERE ( name="Home/Company/message" ) [ RunTime:0.0004s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/Company/del" )  [ RunTime:0.0005s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/Company/del',`title`='删除企业' WHERE ( name="Home/Company/del" ) [ RunTime:0.0004s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/Department/index" )  [ RunTime:0.0007s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/Department/index',`title`='部门列表首页' WHERE ( name="Home/Department/index" ) [ RunTime:0.0005s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/Department/add" )  [ RunTime:0.0006s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/Department/add',`title`='添加部门' WHERE ( name="Home/Department/add" ) [ RunTime:0.0004s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/Department/edit" )  [ RunTime:0.0005s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/Department/edit',`title`='修改部门' WHERE ( name="Home/Department/edit" ) [ RunTime:0.0006s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/Department/del" )  [ RunTime:0.0006s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/Department/del',`title`='删除部门' WHERE ( name="Home/Department/del" ) [ RunTime:0.0007s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/Excel/writeexcel" )  [ RunTime:0.0006s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/Excel/writeexcel',`title`='导入excel数据' WHERE ( name="Home/Excel/writeexcel" ) [ RunTime:0.0004s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/Excel/readexcel" )  [ RunTime:0.0005s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/Excel/readexcel',`title`='导出excel数据' WHERE ( name="Home/Excel/readexcel" ) [ RunTime:0.0004s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/Group/index" )  [ RunTime:0.0005s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/Group/index',`title`='用户组首页' WHERE ( name="Home/Group/index" ) [ RunTime:0.0006s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/Group/add" )  [ RunTime:0.0006s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/Group/add',`title`='添加用户组' WHERE ( name="Home/Group/add" ) [ RunTime:0.0004s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/Group/edit" )  [ RunTime:0.0005s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/Group/edit',`title`='修改用户组' WHERE ( name="Home/Group/edit" ) [ RunTime:0.0004s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/Group/del" )  [ RunTime:0.0005s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/Group/del',`title`='删除用户组' WHERE ( name="Home/Group/del" ) [ RunTime:0.0004s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/Importrules/index" )  [ RunTime:0.0007s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/Importrules/index',`title`='导入权限节点' WHERE ( name="Home/Importrules/index" ) [ RunTime:0.0005s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/Index/index" )  [ RunTime:0.0005s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/Index/index',`title`='登陆后台首页' WHERE ( name="Home/Index/index" ) [ RunTime:0.0004s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/Index/delruntime" )  [ RunTime:0.0005s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/Index/delruntime',`title`='清除缓存' WHERE ( name="Home/Index/delruntime" ) [ RunTime:0.0003s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/Job/index" )  [ RunTime:0.0004s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/Job/index',`title`='职务列表首页' WHERE ( name="Home/Job/index" ) [ RunTime:0.0003s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/Job/add" )  [ RunTime:0.0005s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/Job/add',`title`='添加职务' WHERE ( name="Home/Job/add" ) [ RunTime:0.0003s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/Job/edit" )  [ RunTime:0.0004s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/Job/edit',`title`='修改职务' WHERE ( name="Home/Job/edit" ) [ RunTime:0.0003s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/Job/del" )  [ RunTime:0.0004s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/Job/del',`title`='删除职务' WHERE ( name="Home/Job/del" ) [ RunTime:0.0003s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/Message/savelist" )  [ RunTime:0.0004s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/Message/savelist',`title`='保存发送列表' WHERE ( name="Home/Message/savelist" ) [ RunTime:0.0003s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/Message/getlist" )  [ RunTime:0.0004s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/Message/getlist',`title`='准备发送短信' WHERE ( name="Home/Message/getlist" ) [ RunTime:0.0003s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/Message/dellist" )  [ RunTime:0.0004s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/Message/dellist',`title`='删除发送列表' WHERE ( name="Home/Message/dellist" ) [ RunTime:0.0005s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/Message/showmessagelog" )  [ RunTime:0.0004s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/Message/showmessagelog',`title`='显示日志列表' WHERE ( name="Home/Message/showmessagelog" ) [ RunTime:0.0003s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/Message/sendmessage" )  [ RunTime:0.0006s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/Message/sendmessage',`title`='发送短信' WHERE ( name="Home/Message/sendmessage" ) [ RunTime:0.0005s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/User/index" )  [ RunTime:0.0006s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/User/index',`title`='用户管理首页' WHERE ( name="Home/User/index" ) [ RunTime:0.0004s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/User/showlist" )  [ RunTime:0.0004s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/User/showlist',`title`='通讯录' WHERE ( name="Home/User/showlist" ) [ RunTime:0.0004s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/User/savelist" )  [ RunTime:0.0004s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/User/savelist',`title`='保存发送列表' WHERE ( name="Home/User/savelist" ) [ RunTime:0.0003s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/User/getlist" )  [ RunTime:0.0004s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/User/getlist',`title`='准备发送短信' WHERE ( name="Home/User/getlist" ) [ RunTime:0.0003s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/User/dellist" )  [ RunTime:0.0005s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/User/dellist',`title`='删除发送列表' WHERE ( name="Home/User/dellist" ) [ RunTime:0.0003s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/User/showmessagelog" )  [ RunTime:0.0004s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/User/showmessagelog',`title`='显示日志列表' WHERE ( name="Home/User/showmessagelog" ) [ RunTime:0.0003s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/User/messagelog" )  [ RunTime:0.0004s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/User/messagelog',`title`='短信发送日志' WHERE ( name="Home/User/messagelog" ) [ RunTime:0.0003s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/User/sendmessage" )  [ RunTime:0.0004s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/User/sendmessage',`title`='发送短信' WHERE ( name="Home/User/sendmessage" ) [ RunTime:0.0003s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/User/sendpost" )  [ RunTime:0.0004s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/User/sendpost',`title`='发送post' WHERE ( name="Home/User/sendpost" ) [ RunTime:0.0004s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/User/add" )  [ RunTime:0.0004s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/User/add',`title`='添加用户' WHERE ( name="Home/User/add" ) [ RunTime:0.0004s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/User/department" )  [ RunTime:0.0004s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/User/department',`title`='设置用户所属部门' WHERE ( name="Home/User/department" ) [ RunTime:0.0004s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/User/job" )  [ RunTime:0.0005s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/User/job',`title`='设置用户所属职位' WHERE ( name="Home/User/job" ) [ RunTime:0.0007s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/User/edit" )  [ RunTime:0.0005s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/User/edit',`title`='修改用户' WHERE ( name="Home/User/edit" ) [ RunTime:0.0003s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/User/del" )  [ RunTime:0.0005s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/User/del',`title`='删除用户' WHERE ( name="Home/User/del" ) [ RunTime:0.0004s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/User/delpage" )  [ RunTime:0.0004s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/User/delpage',`title`='删除本页' WHERE ( name="Home/User/delpage" ) [ RunTime:0.0004s ]
+SQL: SELECT * FROM `telbook_rule` WHERE ( name="Home/User/delall" )  [ RunTime:0.0004s ]
+SQL: UPDATE `telbook_rule` SET `name`='Home/User/delall',`title`='全部删除' WHERE ( name="Home/User/delall" ) [ RunTime:0.0005s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `telbook_rule` WHERE `name` NOT IN ('Home/Company/index','Home/Company/add','Home/Company/edit','Home/Company/message','Home/Company/del','Home/Department/index','Home/Department/add','Home/Department/edit','Home/Department/del','Home/Excel/writeexcel','Home/Excel/readexcel','Home/Group/index','Home/Group/add','Home/Group/edit','Home/Group/del','Home/Importrules/index','Home/Index/index','Home/Index/delruntime','Home/Job/index','Home/Job/add','Home/Job/edit','Home/Job/del','Home/Message/savelist','Home/Message/getlist','Home/Message/dellist','Home/Message/showmessagelog','Home/Message/sendmessage','Home/User/index','Home/User/showlist','Home/User/savelist','Home/User/getlist','Home/User/dellist','Home/User/showmessagelog','Home/User/messagelog','Home/User/sendmessage','Home/User/sendpost','Home/User/add','Home/User/department','Home/User/job','Home/User/edit','Home/User/del','Home/User/delpage','Home/User/delall') LIMIT 1   [ RunTime:0.0795s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000080s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000201s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010223s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010343s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000876s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000981s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001199s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001300s ]
+
+[ 2018-10-28T15:49:57+08:00 ] 127.0.0.1 /thinkphp/tel/index.php/Home/Importrules/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000490s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000931s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001038s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000092s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000209s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020652s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020795s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000880s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000975s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000857s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000970s ]
+
+[ 2018-10-28T15:50:00+08:00 ] 127.0.0.1 /thinkphp/tel/index.php/Home/group/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000489s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000957s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001062s ]
+SQL: SHOW COLUMNS FROM `telbook_group` [ RunTime:0.0197s ]
+SQL: SHOW COLUMNS FROM `telbook_group` [ RunTime:0.0191s ]
+SQL: SHOW COLUMNS FROM `telbook_group` [ RunTime:0.0100s ]
+SQL: SELECT `id`,`title`,g.status as gstatus,`rules`,g.cid as gcid,c.cid as ccid,c.cname,c.status as cstatus FROM telbook_group g left join telbook_company c on g.cid=c.cid   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `telbook_rule` [ RunTime:0.0103s ]
+SQL: SELECT `title` FROM `telbook_rule` WHERE `id` IN ('23','21','26','28','27','25','42','41','30','32','31','29','58','39','45','47','46','44','65','64','63','67','66','34','36','50','53','49','38','35','33','48','40','55') ORDER BY name  [ RunTime:0.0008s ]
+SQL: SELECT `title` FROM `telbook_rule` WHERE `id` IN ('58','39','65','64','63','67','66','34','36','38','35','33','48','40') ORDER BY name  [ RunTime:0.0007s ]
+SQL: SELECT `title` FROM `telbook_rule` WHERE `id` IN ('58','39','38','35','33','48','40') ORDER BY name  [ RunTime:0.0005s ]
+SQL: SELECT `title` FROM `telbook_rule` WHERE `id` IN ('26','28','27','25') ORDER BY name  [ RunTime:0.0005s ]
+SQL: SELECT `title` FROM `telbook_rule` WHERE `id` IN ('27') ORDER BY name  [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000158s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000542s ]
+NOTIC: [8] Undefined index: rules_title D:\wamp\www\thinkphp\tel\Runtime\Cache\Home\8fca36e77a7f1f34f115e8b7c1f403b0.php 第 80 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.121216s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.121375s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001169s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001292s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001239s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001356s ]
+
+[ 2018-10-28T15:50:05+08:00 ] 127.0.0.1 /thinkphp/tel/index.php/Home/company/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000760s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001304s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001530s ]
+SQL: SHOW COLUMNS FROM `telbook_company` [ RunTime:0.0198s ]
+SQL: SELECT * FROM `telbook_company` WHERE ( cid=1 ) ORDER BY sort desc  [ RunTime:0.0014s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000132s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000304s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.032616s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.032817s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000906s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000823s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000922s ]
+
+[ 2018-10-28T15:50:10+08:00 ] 127.0.0.1 /thinkphp/tel/index.php/Home/index/delruntime.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000054s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000688s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000844s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000942s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000091s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000206s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011668s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011820s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000799s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000905s ]
+
+[ 2018-10-28T15:50:11+08:00 ] 127.0.0.1 /thinkphp/tel/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000779s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000916s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001024s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000113s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000298s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016113s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016275s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000514s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000605s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001249s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001346s ]
+
+[ 2018-10-28T15:50:14+08:00 ] 127.0.0.1 /thinkphp/tel/index.php/Home/department/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000584s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000707s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000838s ]
+SQL: SHOW COLUMNS FROM `telbook_department` [ RunTime:0.0192s ]
+SQL: SHOW COLUMNS FROM `telbook_department` [ RunTime:0.0172s ]
+NOTIC: [8] Undefined variable: map D:\wamp\www\thinkphp\tel\Home\Model\DepartmentModel.class.php 第 34 行.
+SQL: SHOW COLUMNS FROM `telbook_department` [ RunTime:0.0109s ]
+SQL: SELECT d.did,`dname`,d.sort,d.status,c.cname FROM telbook_department as d left join telbook_company c on d.cid = c.cid  ORDER BY d.cid,d.sort desc,did  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000094s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000211s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.028264s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028455s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000538s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000631s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001216s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001308s ]
+
