@@ -1,0 +1,230 @@
+<extend name="base/base" />
+<block name="title"><title>群发短信列表</title></block>
+<block name="mycss">
+	<load href="__PUBLIC__/css/controller/{$Think.CONTROLLER_NAME}.css" />
+</block>
+
+<block name="mycss">
+	<style>
+		input{margin-bottom: 5px;}
+		#addlist{
+			width:100%;
+			min-width:100px;
+		}
+		/*#re{
+			background:#ffccaa;
+		}*/
+	</style>
+</block>
+<block name="content">
+	<form>
+		<div class="container-fluid">
+			<persent name="company">
+				<div class="row">
+					<label class="col-xs-4 col-sm-4 text-right">剩余短信</label>
+					<div class="col-xs-8 col-sm-5" id="onlymessage">
+						{$company.message}
+					</div>
+		   		</div>
+			</persent>
+			
+			<div class="row">
+				<label class="col-xs-4 col-sm-4 text-right">通知前缀</label>
+				<div class="col-xs-8 col-sm-5">
+					<input type="text" id="pre" value="" placeholder="如：行政办" />
+				</div>
+	   		</div>
+	   		
+			<div class="row">
+				<label class="col-xs-4 col-sm-4 text-right">短信内容</label>
+				<div class="col-xs-8 col-sm-5">
+					<textarea style="width:100%" rows="8" id="message" placeholder="短信内容，120个字符以内！"></textarea>
+				</div>
+	   		</div>
+	   		
+	   		<div class="row">
+				<label class="col-xs-4 col-sm-4 text-right">短信预览</label>
+				<div class="col-xs-8 col-sm-5" style="word-break: break-all;" id="message_content"></div>
+	   		</div>
+   			
+   			<div class="row">
+				<label class="col-xs-4 col-sm-4 text-right">发送给</label>
+				<div class="col-xs-8 col-sm-5">
+					<label>
+						<input type="radio" name="sendto" value="some" checked />发送给以下电话列表
+					</label>
+				</div>
+	   		</div>
+	   		<div class="row">
+				<label class="col-xs-4 col-sm-4 text-right"></label>
+				<div class="col-xs-8 col-sm-5">
+					<label>
+						<input type="radio" name="sendto" value="all" />忽略我选择的列表，发送单位所有人
+					</label>
+				</div>
+	   		</div>
+	   		
+	   		<div class="row">
+		    	<div class="col-xs-4 col-sm-4"></div>
+		    	<div class="col-xs-8 col-sm-5">
+		    		<input type="submit" class="btn btn-info btn-block" value="准备群发" />
+		    	</div>
+			</div>
+			
+			<div class="row">
+		    	<div class="col-xs-4 col-sm-4"></div>
+		    	<div class="col-xs-8 col-sm-5" id="re"></div>
+			</div>
+    
+	    </div>
+	</form>
+	
+	<table class="table table-bordered table-hover table-striped">
+		<caption class="text-center h3">您的短信将群发给下列人员</caption>
+    	<thead>
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>号码</th>
+                <!--<th>部门</th>
+				<th>职务</th>-->
+				<th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <volist name="list" id="one">
+                <tr>
+                	<td>{$key+1}</td>
+                    <td class="telname">{$one[0]}</td>
+	                <td class="telnum">{$one[1]}</td>
+                    <!--<td class="teldid">{$one[2]}</td>
+					<td class="teljob">{$one[3]}</td>-->
+					<td><a href="#" class="delrow btn btn-info">删除</a></td>
+                </tr>
+            </volist>
+        </tbody>
+    </table>
+    
+    <div class="row">
+    	<label class="col-xs-4 col-sm-4 text-right">附加号码：</label>
+    	<div class="col-xs-7 col-sm-4">
+    		<textarea id="addlist" rows="5" placeholder="每个号码占一行"></textarea>
+    		<div>
+    			11位数字之后的认为是注释，将忽略之！如：<br>
+    			13877773333，张三<br>
+    			13877775555王五<br>
+    			均可！
+    		</div>
+    	</div>
+	</div>
+			
+</block>
+
+<block name="myscript">
+	<script>
+		var strlen = 70;
+		$("#message").on("keypress",function(){
+			if(!set_content($("#message").val())){alert('字数超过了' + strlen);}
+		});
+		$("#message").on("change",function(){
+			if(!set_content($("#message").val())){alert('字数超过了' + strlen);}
+		});
+		$("#message").on("click",function(){
+			if(!set_content($("#message").val())){alert('字数超过了' + strlen);}
+		});
+		
+		function set_content(str){
+			str = '【雾色船城】您的订单' + $("#pre").val() + '已经处理完成，货物即将发出，请于近' + str + '日内查收。';
+			//str = '【隆昌二中】' + $("#pre").val() + '通知：' + str + '每个月底最后两天放假。——请相互转考，请勿回复！';
+			//console.log(str);
+			if(str.length > strlen){return false;}
+			$("#message_content").text(str);
+			return true;
+		}
+		
+		//删除
+		$(".delrow").click(function(e){
+			e.preventDefault();
+			$(e.target).parent().parent().remove();
+		});
+		
+		//发送
+		$("form").submit(function(e){
+			e.preventDefault();
+			var re = confirm("确定要发送信息给下列人员了吗？");
+			if(re){
+				var telnum_list = new Array();
+				//获取添加到列表的号码
+				$(".telnum").each(function(){
+					if($.trim($(this).text()).length != 0){
+						telnum_list.push($(this).text());
+					}
+				});
+				//获取附加的号码
+				var addlist = $("#addlist").val().split(/\n/);
+				for(var i=0;i<addlist.length;i++){
+					if($.trim(addlist[i]) != ''){
+						telnum_list.push(addlist[i]);
+					}
+				}
+				
+				//验证号码
+				var re = check_list(telnum_list);
+				if(re.err >= 0){
+					alert("第" + (re.err+1) + "条号码 " + telnum_list[re.err] + "：不是合法的手机号，请删除或修改！");
+					return false;
+				}
+				
+				<if condition="session('gids') neq 1">
+					//检查余额是否充足
+					var onlymessage = parseInt($("#onlymessage").text());
+					if(re.suc.length > onlymessage){
+						alert('短信余额不足以发送' + re.suc.length + '条短信，请联系管理员充值！');
+						return false;
+					}
+				</if>
+				
+				//发送短信
+				$.ajax({
+					type:"POST",
+					url:"{:U('sendmessage')}",
+					data:{content:$("#message_content").text(),tellist:re.suc.join(',')},
+					success:function(re){
+						//$("#re").html(re);
+						//console.log(re);
+						
+						var resp = JSON.parse(re);
+						if(resp.respCode == 0){
+							alert('发送短信共计：' + resp.total + ',\n成功发送' + resp.success + '条短信，\n发送失败' + resp.err + '条');
+							if(resp.err > 0){
+								alert('发送失败的短信请【查看短信日志】！');
+							}
+							location.href = "{:U('showmessagelog')}";
+						}else{
+							alert('发送失败，错误代码：' + resp.respCode + '。请联系管理员处理错误！');
+						}
+					}
+				});
+			}else{
+				//取消发送
+				alert(re);
+			}
+		});
+		
+		//验证号码
+		function check_list(list){
+			for(var i=0;i<list.length;i++){
+				if(list[i].length < 11){
+					return {err:i,suc:0};
+				}else if(list[i].length >=11){
+					list[i] = list[i].substring(0,11);
+					var pattern = /^1\d{10}$/;
+					if(!pattern.test(list[i])){
+						return {err:i,suc:0};
+					}
+				}
+			}
+			return {err:-1,suc:list};
+		}
+	</script>
+</block>

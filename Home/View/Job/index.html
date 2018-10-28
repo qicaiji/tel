@@ -1,0 +1,39 @@
+<extend name="base/base" />
+<block name="title"><title>职位列表</title></block>
+
+<block name="content">
+	<table class="table table-bordered table-hover table-striped">
+    	<thead>
+            <tr>
+            	<th class="width-1">ID</th>
+                <th class="width-2">职位名称</th>
+				<th class="width-1">排序</th>
+				<if condition="session('gids') eq 1">
+					<th class="width-1">状态</th>
+					<th class="width-2">所属企业</th>
+				</if>
+				<th class="width-2">管理</th>
+				</tr>
+        </thead>
+        <tbody>
+            <volist name="jlist" id="one">
+                <tr>
+                	<td>{$one.jid}</td>
+                    <td>{$one.jname}</td>
+					<td>{$one.sort}</td>
+					<if condition="session('gids') eq 1">
+						<td>{$one.status}</td>
+						<td>{$one.cname}</td>
+					</if>
+                    <td>
+                        <a href="{:U('edit',array('jid'=>$one['jid']))}">编辑</a> | 
+                        <a href="{:U('del',array('jid'=>$one['jid']))}" onClick="javascript:return del()">删除</a>
+                    </td>
+                </tr>
+            </volist>
+        </tbody>
+    </table>
+    <div>
+    	<a href="{:U('add')}" id="add_button" class="btn btn-info btn-block">添加</a>
+    </div>
+</block>

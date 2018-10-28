@@ -1,0 +1,37 @@
+<extend name="base/base" />
+<block name="title"><title>添加短信</title></block>
+<block name="mycss">
+	<load href="__PUBLIC__/css/controller/{$Think.CONTROLLER_NAME}.css" />
+</block>
+
+<block name="content">
+	<form action="{:U(ACTION_NAME)}" method="post">
+
+		<!-- 企业ID： -->
+		<input type="hidden" name="cid" value="{$one['cid']}" />
+		
+		<div class="container-fluid">
+			<div class="row">
+				<label class="col-xs-4 col-sm-4 text-right">企业名称：</label>
+				<div class="col-xs-8 col-sm-4">
+					<input type="text" name="cname" value="{$one['cname']}" disabled />
+				</div>
+	   		</div>
+	   		
+	   		<div class="row">
+				<label class="col-xs-4 col-sm-4 text-right">增加短信：</label>
+				<div class="col-xs-8 col-sm-4">
+					<input type="number" name="message" value="0" />
+				</div>
+	   		</div>
+	   		
+	   		<div class="row">
+		    	<div class="col-xs-4 col-sm-4"></div>
+		    	<div class="col-xs-6 col-sm-4">
+		    		<input type="submit" class="btn btn-info btn-block" value="提交" />
+		    	</div>
+			</div>
+	    </div>
+	</form>
+
+</block>

@@ -1,0 +1,17 @@
+<div class="container-fluid" id="header">
+	<div class="row">
+	    <div class="col-xs-12 col-sm-4">
+	    	<a href="{:U('index/index')}">
+	        	<img src="__PUBLIC__/image/logo.png" id="logo" title="企业通讯录" style="width:280px;" />
+	        </a>
+	    </div>
+	    
+	    <div class="col-xs-12 col-sm-8 text-nowrap text-right welcome">
+            <if condition="session('uid') gt 0">
+            	欢迎回来：{:session('realname')} 
+            	<a href="{:U('User/edit',array('uid'=>session('uid')))}">[修改]</a> |
+		        <a href="{:U('login/logout')}">退出</a>
+            </if> 
+	    </div>
+	</div>
+</div>

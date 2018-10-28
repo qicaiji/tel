@@ -1,0 +1,38 @@
+<ul class="nav nav-tabs text-center" id="menu">
+<!--    <li class="text-center"><a href="{:U('index/index')}">首页</a></li>-->
+
+	<li class="dropdown text-center">
+		<a href="#" data-toggle="dropdown">
+			站务<span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu">
+			<if condition="session('gids') eq 1">
+				<li><a href="{:U('Importrules/index')}">权限导入</a></li>
+			</if>
+			<li><a href="{:U('group/index')}">组管理</a></li>
+			<li><a href="{:U('company/index')}">企业管理</a></li>
+			<li><a href="{:U('index/delruntime')}">清理缓存</a></li>
+		</ul>
+	</li>
+
+	
+	<if condition="session('gids') lt 5">
+		<li class="dropdown text-center">
+			<a href="#" data-toggle="dropdown">
+				管理<span class="caret"></span>
+			</a>
+			<ul class="dropdown-menu">
+				<li><a href="{:U('department/index')}">部门管理</a></li>
+				<li><a href="{:U('job/index')}">职位管理</a></li>
+				<li><a href="{:U('user/index')}">用户管理</a></li>
+			</ul>
+		</li>
+	</if>
+	<li class="text-center"><a href="{:U('user/showlist')}">通讯录</a></li>
+	
+	<li class="text-center"><a href="{:U('login/pay')}">捐助</a></li>
+
+    <!--<li class="text-center">
+    	<a href="javascript:alert('作者：四川隆昌二中 陈晨 det@qq.com');" class="shouji_hidden">关于</a>
+    </li>-->
+</ul>

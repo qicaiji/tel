@@ -1,0 +1,148 @@
+<extend name="base/base" />
+<block name="title"><title>修改用户信息</title></block>
+<block name="mycss">
+	<load href="__PUBLIC__/css/controller/{$Think.CONTROLLER_NAME}.css" />
+</block>
+
+<block name="content">
+	<form action="{:U(ACTION_NAME)}" method="post">
+		<!-- 用户ID -->
+        <input type="hidden" name="uid" value="{$one.uid}" />
+        
+		<div class="container-fluid">
+			<div class="row">
+				<label class="col-xs-5 col-sm-4 text-right">真实姓名</label>
+				<div class="col-xs-7 col-sm-4">
+					<if condition="session('gid') eq 5">
+						<input type="text" name="realname" value="{$one.realname}" required />
+					<else />
+						<input type="text" name="realname" value="{$one.realname}" required="required" />
+					</if>
+				</div>
+	   		</div>
+
+			<div class="row">
+				<label class="col-xs-5 col-sm-4 text-right">密码</label>
+				<div class="col-xs-7 col-sm-4">
+					<input type="password" name="pwd" placeholder="留空则不修改密码" />
+				</div>
+	   		</div>
+	   		
+        	<div class="row">
+				<label class="col-xs-5 col-sm-4 text-right">重复密码</label>
+				<div class="col-xs-7 col-sm-4">
+					<input type="password" name="pwd2" placeholder="留空则不修改密码" />
+				</div>
+	   		</div>
+		
+	   		<div class="row">
+				<label class="col-xs-5 col-sm-4 text-right">身份证</label>
+				<div class="col-xs-7 col-sm-4">
+					<input type="text" name="card" value="{$one.card}" required />
+				</div>
+	   		</div>
+	   		
+	   		<div class="row">
+				<label class="col-xs-5 col-sm-4 text-right">V网短号</label>
+				<div class="col-xs-7 col-sm-4">
+					<input type="text" name="vtel" value="{$one.vtel}" />
+				</div>
+	   		</div>
+	   		
+	   		<div class="row">
+				<label class="col-xs-5 col-sm-4 text-right">手机长号</label>
+				<div class="col-xs-7 col-sm-4">
+					<input type="text" name="fulltel" value="{$one.fulltel}" />
+				</div>
+	   		</div>
+	   		
+	   		<div class="row">
+				<label class="col-xs-5 col-sm-4 text-right">办公室座机</label>
+				<div class="col-xs-7 col-sm-4">
+					<input type="text" name="otel" value="{$one.otel}" />
+				</div>
+	   		</div>
+	   		
+	   		<div class="row">
+				<label class="col-xs-5 col-sm-4 text-right">家庭座机</label>
+				<div class="col-xs-7 col-sm-4">
+					<input type="text" name="hometel" value="{$one.hometel}" />
+				</div>
+	   		</div>
+	   		
+	   		<div class="row">
+				<label class="col-xs-5 col-sm-4 text-right">亲属号码</label>
+				<div class="col-xs-7 col-sm-4">
+					<input type="text" name="familytel" value="{$one.familytel}" />
+				</div>
+	   		</div>
+	   		
+	   		<div class="row">
+				<label class="col-xs-5 col-sm-4 text-right">邮箱/QQ</label>
+				<div class="col-xs-7 col-sm-4">
+					<input type="text" name="mail" value="{$one.mail}" />
+				</div>
+	   		</div>
+	   		
+	   		<present name="clist">
+	        	<div class="row">
+	        		<label class="col-xs-5 col-sm-4 text-right">所属企业</label>
+	            </div>
+	            
+	            <volist name="clist" id="vo">
+	            	<assign name="checked" value="" />
+                    <if condition="$vo['cid'] eq $one['cid']">
+                        <assign name="checked" value="checked" />
+                    </if>
+	            	<label class="col-xs-5 col-sm-4 text-right"></label>
+	                <label class="col-xs-7 col-sm-6">
+	                    <input type="radio" name="cid" value="{$vo['cid']}" {$checked} />
+	                    {$vo['cname']}
+	                </label>
+	            </volist>
+	        <else />
+	            <input type="hidden" name="cid" value="{:session('cid')}" />
+	        </present>
+	        
+	        <div class="row">
+        		<label class="col-xs-5 col-sm-4 text-right">所属用户组</label>
+            </div>
+            
+            <div class="row">
+        		<volist name="glist" id="vo">
+        			<assign name="checked" value="" />
+        			<if condition="in_array($vo['id'],explode(',',$one['gids']))">
+		            {//<if condition="strpos('s'.$one['gids'],$vo['id'])">添加一个字母是为了范围的数字大于0}
+		                <assign name="checked" value="checked" />
+		            <else />
+		            	<assign name="checked" value="" />
+		            </if>
+        			<label class="col-xs-5 col-sm-4 text-right"></label>
+		            <label class="col-xs-7 col-sm-6">
+		                <input type="checkbox" name="gid[]" value="{$vo['id']}" {$checked} />{$vo['title']}
+		            </label>
+		        </volist>
+            </div>
+            
+            <div class="row">
+				<label class="col-xs-5 col-sm-4 text-right">状态</label>
+				<div class="col-xs-7 col-sm-4">
+					<if condition="$one['status']">
+                    	<assign name="selected" value="selected" />
+                	</if>
+                	<select name="status">
+						<option value="0">禁用</option>
+						<option value="1" {$selected}>正常</option>
+					</select>
+				</div>
+	   		</div>
+	   		
+	   		<div class="row">
+		    	<div class="col-xs-5 col-sm-4"></div>
+		    	<div class="col-xs-6 col-sm-4">
+		    		<input type="submit" class="btn btn-info btn-block" value="提交" />
+		    	</div>
+			</div>
+	    </div>
+	</form>
+</block>

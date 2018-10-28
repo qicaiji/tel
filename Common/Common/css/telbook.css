@@ -1,0 +1,83 @@
+@charset "utf-8";
+/* CSS Document */
+@media(min-width:768px){
+	.shouji_show{
+		display:none;
+	}
+}
+@media(max-width:768px){
+	.shouji_hidden{
+		display:none;
+		background:red;
+	}
+	.shouji_show{
+		text-align: center;
+		color:red;
+		display:block;
+	}
+}
+/* 标签定义 开始 */
+body{
+	background:#eee;
+	
+}
+ul{
+	display:block;
+	margin:0;
+	padding:0;
+	list-style-type:none;
+}
+li{
+	margin:0;
+	padding:0;
+}
+
+th,td{
+	text-align: center;
+	word-break: break-all;	
+}
+
+.width-1{width:10%;}
+.width-2{width:20%;}
+.width-3{width:30%;}
+.width-4{width:40%;}
+.width-5{width:50%;}
+.width-6{width:60%;}
+.width-7{width:70%;}
+.width-8{width:80%;}
+.width-9{width:90%;}
+
+#header{
+	background:#ddd;
+	font-size:1.3em;
+	line-height: 1.6em;
+}
+
+#menu{
+	/*background:#222;*/
+	font-size:1.6em;
+	font-weight: bold;
+	color:#fff;
+	line-height:1.8em;
+	text-align:center;
+}
+
+#content{
+	min-height:300px;
+}
+#content > form{
+	padding-top:10px;
+}
+#add_button{
+	width:30%;
+	min-width:60px;
+	margin:10px auto;
+}
+
+#footer{
+	background:#222;
+	clear:both;
+	color:#eee;
+	line-height:3em;
+	text-align:center;
+}

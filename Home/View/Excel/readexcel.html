@@ -1,0 +1,42 @@
+<extend name="base/base" />
+<block name="title"><title>批量导入</title></block>
+<block name="mycss">
+	<style>
+		label{display:block;margin-bottom: 10px;text-align:center;}
+	</style>
+</block>
+<block name="content">
+<div style="text-align:center;margin-top:10px;">
+	<form action="{:U(ACTION_NAME)}" method="post" enctype="multipart/form-data">
+        <label>
+        	可以导入 .xls 或 .xlsx 格式的表格
+        </label>
+    	<label>
+        	<input type="file" name="excel" style="margin:0 auto;"/>
+        </label>
+        <label>
+       		<input type="submit" value="提交" style="width:20%;"/>
+        </label>
+    </form>
+    <div>
+    	格式为：
+        <table class="table table-bordered table-hover table-striped">
+        	<tr>
+            	<td>真实姓名</td>
+                <td>身份证</td>
+                <td>所属部门id</td>
+				<td>所属职位id</td>
+                <td>V网号</td>
+                <td>手机长号</td>
+                <td>办公室号码</td>
+                <td>家庭座机</td>
+                <td>亲属号码</td>
+				<td>邮箱/QQ号</td>
+            </tr>
+        </table>
+        <div class="h2">
+        	<a href="__PUBLIC__/telbook.xls" target="_blank">下载模版！</a>
+        </div>
+    </div>
+</div>
+</block>

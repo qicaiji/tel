@@ -1,0 +1,49 @@
+<extend name="base/base" />
+<block name="title"><title>修改部门信息</title></block>
+<block name="mycss">
+	<load href="__PUBLIC__/css/controller/{$Think.CONTROLLER_NAME}.css" />
+</block>
+
+<block name="content">
+	<form action="{:U(ACTION_NAME)}" method="post">
+
+		<!-- 部门ID： -->
+		<input type="hidden" name="did" value="{$one['did']}" />
+		
+		<div class="container-fluid">
+			<div class="row">
+				<label class="col-xs-4 col-sm-4 text-right">部门名称：</label>
+				<div class="col-xs-8 col-sm-4">
+					<input type="text" name="dname" value="{$one['dname']}" />
+				</div>
+	   		</div>
+	   		
+	   		<div class="row">
+				<label class="col-xs-4 col-sm-4 text-right">排序：</label>
+				<div class="col-xs-8 col-sm-4">
+					<input type="number" name="sort" value="{$one['sort']}" />
+				</div>
+	   		</div>
+	   		
+	        <div class="row">
+				<label class="col-xs-4 col-sm-4 text-right">状态：</label>
+				<div class="col-xs-8 col-sm-4">
+					<if condition="$one['status'] eq '1'">
+						<assign name="selected" value="selected" />
+					</if> 
+					<select name="status">
+						<option value="0">禁用</option>
+						<option value="1" {$selected}>正常</option>
+					</select>
+				</div>
+	   		</div>
+
+	   		<div class="row">
+		    	<div class="col-xs-4 col-sm-4"></div>
+		    	<div class="col-xs-6 col-sm-4">
+		    		<input type="submit" class="btn btn-info btn-block" value="提交" />
+		    	</div>
+			</div>
+		</div>
+	</form>
+</block>

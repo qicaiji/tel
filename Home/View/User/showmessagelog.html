@@ -1,0 +1,48 @@
+<extend name="base/base" />
+<block name="title"><title>短信发送记录</title></block>
+<block name="mycss">
+	<load href="__PUBLIC__/css/controller/{$Think.CONTROLLER_NAME}.css" />
+</block>
+
+<block name="content">
+	<div class="shouji_show">
+		您的屏幕宽度过小，建议使用电脑查看！<br>
+		电脑访问网址：tel.wscc.cn/tel
+	</div>
+	<table class="table table-bordered table-hover table-striped">
+    	<thead>
+            <tr>
+            	<if condition="session('gids') eq 1">
+					<th>cid</th>
+					<th>uid</th>
+				</if>
+            	<th>发送者</th>
+                <th>时间</th>
+				<th>IP</th>
+				<th class="width-2">内容</th>
+				<th class="width-2">号码列表</th>
+				<th>总数</th>
+				<th>成功</th>
+				<th class="width-1">失败</th>
+			</tr>
+        </thead>
+        <tbody>
+            <volist name="mlist" id="one">
+                <tr>
+                	<if condition="session('gids') eq 1">
+						<td>{$one.cid}</td>
+						<td>{$one.uid}</td>
+					</if>
+                	<td>{$one.realname}</td>
+                    <td>{:date('Y-m-d H:i:s',$one['sendtime'])}</td>
+					<td>{$one.ip}</td>
+					<td>{$one.content}</td>
+					<td>{$one.tellist}</td>
+					<td>{$one.sendallcount}</td>
+					<td>{$one.sendtrue}</td>
+					<td>{$one.errlist}</td>
+                </tr>
+            </volist>
+        </tbody>
+    </table>
+</block>

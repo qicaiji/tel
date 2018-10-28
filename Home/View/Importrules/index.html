@@ -1,0 +1,20 @@
+<extend name="base/base" />
+<block name="title"><title>权限导入</title></block>
+<block name="mycss">
+	<style>
+		#import{
+			text-align: center;
+			padding:10px 0 10px 50px;
+		}
+	</style>
+</block>
+<block name="content">
+    <div id="import">
+        <a href="{:U(ACTION_NAME,array('do'=>1))}" class="h3">确定要导入以下节点吗？</a>
+        <ul class="h4">
+            <volist name="list" id="one">
+                <li>{$one['name']} => {$one['title']}</li>
+            </volist>
+        </ul>
+    </div>
+</block>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<load href="__PUBLIC__/css/bootstrap.min.css" />
+		<load href="__PUBLIC__/css/telbook.css" />
+		<load href="__PUBLIC__/css/controller/{$Think.CONTROLLER_NAME}.css" />
+		<title>登陆企业通讯录</title>
+	</head>
+
+	<body>
+		<include file='base/header' />
+		<div id="content">
+			<form id="login_form" action="{:U(ACTION_NAME)}" method="post">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-xs-4 col-sm-4 text-right">姓名</div>
+						<div class="col-xs-7 col-sm-4 input_text">
+							<input type="text" name="realname" required class="text-center bottom10" />
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-4 col-sm-4 text-right">密码</div>
+						<div class="col-xs-7 col-sm-4 input_text">
+							<input type="password" name="pwd" required class="text-center bottom10" />
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-4 col-sm-4 text-right">验证码</div>
+						<div class="col-xs-7 col-sm-4 input_text">
+							<input type="number" name="verifyImg" required class="text-center bottom10" />
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-xs-4 col-sm-4 text-right"></div>
+						<div class="col-xs-7 col-sm-2 input_text bottom10">
+							<img src="{:U('verifyImg')}" id="verifyImg" title="点击刷新" /><br>点击图片刷新
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-xs-4 col-sm-4 text-right">保存登陆</div>
+						<div class="col-xs-7 col-sm-2 input_text bottom10">
+							<label>
+								<input type="checkbox" name="save_login" value="yes" checked style="width:15px;height:15px;" /> 下次自动登陆
+							</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-4 col-sm-4"></div>
+						<div class="col-xs-7 col-sm-4">
+							<input type="submit" class="btn btn-primary bottom10" value="登陆" />
+						</div>
+					</div>
+				</div>
+
+				<div class="text-center">
+					<a href="__PUBLIC__/image/sjdl.png" target="_blank">
+						<img src="__PUBLIC__/image/sjdl.png" style="max-width:300px;margin:20px;" />
+					</a>
+				</div>
+			</form>
+
+		</div>
+		<include file='base/footer' />
+		<load href="__PUBLIC__/js/jquery-2.2.3.js" />
+		</script>
+		<script>
+			//点击刷新验证码
+			$("#verifyImg").on("click", function() {
+				$("#verifyImg").attr("src", "./verifyImg");
+			});
+		</script>
+	</body>
+
+</html>

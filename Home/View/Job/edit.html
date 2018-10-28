@@ -1,0 +1,61 @@
+<extend name="base/base" />
+<block name="title"><title>department_edit</title></block>
+<block name="mycss">
+	<load href="__PUBLIC__/css/controller/{$Think.CONTROLLER_NAME}.css" />
+</block>
+
+<block name="content">
+	<form action="{:U(ACTION_NAME)}" method="post">
+		<!-- 部门ID： -->
+		<input type="hidden" name="jid" value="{$one['jid']}" />
+
+		<div class="container-fluid">
+			<div class="row">
+				<label class="col-xs-4 col-sm-4 text-right">职位名称：</label>
+				<div class="col-xs-8 col-sm-4">
+					<input type="text" name="jname" value="{$one['jname']}" placeholder="批量添加：空格隔开" />
+				</div>
+	   		</div>
+	   		
+	   		<div class="row">
+				<label class="col-xs-4 col-sm-4 text-right">排序：</label>
+				<div class="col-xs-8 col-sm-4">
+					<input type="number" name="sort" value="{$one['sort']}" />
+				</div>
+	   		</div>
+	   		
+	   		<div class="row">
+				<label class="col-xs-4 col-sm-4 text-right">状态：</label>
+				<div class="col-xs-8 col-sm-4">
+					<select name="status">
+						<option value="1">正常</option>
+						<option value="0">禁用</option>
+					</select>
+				</div>
+	   		</div>
+	   		
+	   		<present name="clist">
+	        	<div class="row">
+	        		<label class="col-xs-4 col-sm-4 text-right">所属企业：</label>
+	            </div>
+	            
+	            <volist name="clist" id="one">
+	            	<label class="col-xs-4 col-sm-4 text-right"></label>
+	                <label class="col-xs-8 col-sm-6">
+	                    <input type="radio" name="cid" value="{$one['cid']}" />
+	                    {$one['cname']}
+	                </label>
+	            </volist>
+	        <else />
+	            <input type="hidden" name="cid" value="{:session('cid')}" />
+	        </present>
+	        
+	        <div class="row">
+		    	<div class="col-xs-4 col-sm-4"></div>
+		    	<div class="col-xs-6 col-sm-4">
+		    		<input type="submit" class="btn btn-info btn-block" value="提交" />
+		    	</div>
+			</div>
+	 	</div>
+	</form>
+</block>

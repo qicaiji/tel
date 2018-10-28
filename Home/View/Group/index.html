@@ -1,0 +1,43 @@
+<extend name="base/base" />
+<block name="title"><title>用户组列表</title></block>
+
+<block name="content">
+	<table class="table table-bordered table-hover table-striped">
+    	<thead>
+            <tr>
+                <if condition="session('gids') eq 1">
+                	<th class="width-1">ID</th>
+                </if>
+                <th class="width-2">组名称</th>
+                <th class="width-1">状态</th>
+                <th class="width-3">权限</th>
+                <if condition="session('gids') eq 1">
+                	<th class="width-1">所属企业</th>
+                </if>
+                <th class="width-2">管理</th>
+            </tr>
+        </thead>
+        <tbody>
+            <volist name="glist" id="one">
+                <tr>
+                	<if condition="session('gids') eq 1">
+                    	<td>{$one.id}</td>
+                    </if>
+                    <td>{$one.title}</td>
+                    <td>{$one.gstatus}</td>
+                    <td>{$one.rules_title}</td>
+                    <if condition="session('gids') eq 1">
+                    	<td>{$one.cname}</td>
+                    </if>
+                    <td>
+                        <a href="{:U('edit',array('id'=>$one['id']))}">编辑</a> | 
+                        <a href="{:U('del',array('id'=>$one['id']))}" onClick="javascript:return del()">删除</a>
+                    </td>
+                </tr>
+            </volist>
+        </tbody>
+    </table>
+    <div>
+    	<a href="{:U('add')}" id="add_button" class="btn btn-info btn-block">添加</a>
+    </div>
+</block>

@@ -1,0 +1,178 @@
+<extend name="base/base" />
+<block name="title"><title>通讯录</title></block>
+<block name="mycss">
+	<load href="__PUBLIC__/css/controller/{$Think.CONTROLLER_NAME}.css" />
+</block>
+
+<block name="content">
+	<table class="table table-bordered table-hover table-striped">
+    	<thead>
+            <tr>
+                <th>姓名</th>
+                <if condition="session('gids') lt 5">
+                	<th>
+                		<label>
+                			<input type="checkbox" id="allbox" /> 群短信
+                		</label>
+                	</th>
+                </if>
+                <th>部门</th>
+				<th>职位</th>
+                <th>更新时间</th>
+            </tr>
+        </thead>
+        <tbody>
+            <volist name="ulist" id="one">
+                <tr>
+                    <td class="dropdown">
+						
+						<a href="#" data-toggle="dropdown">{$one.realname}</a>
+						<ul class="dropdown-menu">
+							<li class="tels">V网：{$one.vtel}</li>
+							<li class="tels">手机号：{$one.fulltel}</li>
+							<li class="tels">办公室：{$one.otel}</li>
+							<li class="tels">家庭：{$one.hometel}</li>
+							<li class="tels">亲属：{$one.familytel}</li>
+							<li class="tels">邮箱/QQ：{$one.mail}</li>
+							<li class="tels">
+								<if condition="session('gid') neq 5">
+									<a href="{:U('edit',array('uid'=>$one['uid']))}" class="btn btn-info">修改</a>
+								</if>
+							</li>
+						</ul>
+					</td>
+					<if condition="session('gids') lt 5">
+	                	<td>
+	                		<label>
+	                			<input type="checkbox" class="message" value="{$one.realname},{$one.fulltel},{$one.dids},{$one.jids}" />
+	                		</label>
+	                	</td>
+	                </if>
+                    <td>{$one.dids}</td>
+					<td>{$one.jids}</td>
+                    <td>{:date('Y-m-d',$one['uptime'])}</td>
+                </tr>
+            </volist>
+        </tbody>
+    </table>
+    
+    <if condition="session('gids') lt 5">
+    	<div class="text-center">
+	    	<a href="#" id="savelist" class="btn btn-info bottom10">添加到群短信</a> | 
+	    	<a href="{:U('message/getlist')}" id="test2" class="btn btn-info bottom10" target="_blank">准备发短信</a> |
+	    	<a href="#" id="dellist" class="btn btn-info bottom10">清空短信列表</a> | 
+	    	<a href="{:U('message/showmessagelog')}" class="btn btn-info bottom10" target="_blank">查看短信日志</a>
+	    </div>
+    </if>
+    
+    <div class="text-center h3">{$page}</div>
+    
+    <div id="search">
+        <form action="{:U(ACTION_NAME)}" method="post">
+        	<div class="container-fluid">
+        		<div class="row search">
+        			<div class="col-xs-12 col-sm-3"></div>
+        			<div class="col-xs-6 col-sm-3">
+			            <select name="did">
+			            	<option value="">部门/年级</option>
+			                <volist name="searchdlist" id="done">
+			                	<option value="{$done['did']}">{$done['dname']}</option>
+			                </volist>
+						</select>
+					</div>
+					<div class="col-xs-6 col-sm-3">
+						<select name="jid">
+			            	<option value="">职位/职务</option>
+			                <volist name="searchjlist" id="done">
+			                	<option value="{$done['jid']}">{$done['jname']}</option>
+			                </volist>
+						</select>
+					</div>
+				</div>
+				
+				<div class="row search">
+					<div class="col-xs-3 col-sm-4"></div>
+					<div class="col-xs-6 col-sm-4">
+						<input type="text" name="content" placeholder="部分姓名或号码" />
+	           		</div>
+	           	</div>
+	           	
+	           	<div class="row search">
+	           		<div class="col-xs-3 col-sm-4"></div>
+					<div class="col-xs-6 col-sm-4">
+	           			<input type="submit" value="查询" />
+	           		</div>
+				</div>
+			</div>
+        </form>
+    </div>
+    
+    <div id="messages" class="hidden"><ul class="text-center"></ul></div>
+</block>
+
+<block name="myscript">
+<script>
+	//全选 不全选
+	$("#allbox").click(function(){
+		if($(".message").is(":checked")){
+			$(".message").prop("checked",false);
+		}else{
+			$(".message").prop("checked",true);
+		}
+	});
+	
+	//添加到列表
+	$("#savelist").click(function(e){
+		e.preventDefault();
+		var telList = new Array();
+		$("input.message:checked").each(function(){
+			telList.push(this.value);
+		});
+		
+		//console.log(telList);
+		
+		if(telList.length == 0){
+			alert('发送列表是空的，请先添加群发号码列表');
+			return false;
+		}
+		
+		//ajax添加到session
+		$.ajax({
+			type:"POST",
+			url:"{:U('message/savelist')}",
+			data:"messages=" + encodeURIComponent(telList.join(";")),
+			success:function(respose,state,xhr){
+				alert('添加成功！去掉重复后，当前群发数量为：' + respose);
+				//console.log(respose);
+				changeButton(respose);
+			}
+		});
+	});
+	
+	function changeButton(n){
+		$("#savelist").text("添加到群短信("+ n + ")");
+	}
+	
+	//清空列表
+	$("#dellist").click(function(e){
+		e.preventDefault();
+		//删除session
+		$.ajax({
+			type:"GET",
+			url:"{:U('message/dellist')}",
+			success:function(respose,state,xhr){
+				if(respose){
+					alert('删除成功！');
+					changeButton(0);
+				}
+			}
+		});
+	});
+	
+	function contains(a, e){
+	    for(j=0;j<a.length;j++)if(a[j]==e)return true;
+	    return false;
+	}
+	
+</script>
+</block>

@@ -1,0 +1,38 @@
+<extend name="base/base" />
+<block name="title"><title>设置用户部门</title></block>
+<block name="mycss">
+	<load href="__PUBLIC__/css/controller/{$Think.CONTROLLER_NAME}.css" />
+</block>
+
+<block name="content">
+	<form action="{:U(ACTION_NAME)}" method="post">
+    
+    	<input type="hidden" name="uid" value="{$user.uid}" />
+
+		<div class="container-fluid">
+			<div class="row">
+				<label class="col-xs-12 col-sm-12 text-center">设置 [{$user.realname}] 所属部门：</label>
+	   		</div>
+	   		
+	   		<div class="row departments">
+		   		<volist name="dlist" id="one">
+		            <assign name="checked" value="" />
+	                <if condition="in_array('.'.$one['did'].'.',$udlist)">
+	                    <assign name="checked" value="checked" />
+	                </if>
+	                <label class="col-xs-12 col-sm-12"></label>
+	                <label class="col-xs-12 col-sm-12 text-center">
+	                	<input type="checkbox" name="did[]" value="{$one['did']}" {$checked} />{$one['dname']}
+	                </label>
+	            </volist>
+            </div>
+            
+            <div class="row">
+		    	<div class="col-xs-3 col-sm-4"></div>
+		    	<div class="col-xs-6 col-sm-4">
+		    		<input type="submit" class="btn btn-info btn-block" value="提交" />
+		    	</div>
+   			</div>
+	    </div>
+	</form>
+</block>

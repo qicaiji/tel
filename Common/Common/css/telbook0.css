@@ -1,0 +1,246 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* 标签定义 开始 */
+body{
+	background:#eee;
+	font-size:18px;
+	line-height:25px;
+	margin:0;
+	font-family:Arial,"微软雅黑", Helvetica, sans-serif;
+}
+a{
+	color:blue;
+	text-decoration:none;
+}
+a:hover{
+	color:red;
+}
+ul{
+	display:block;
+	margin:0;
+	padding:0;
+	list-style-type:none;
+}
+li{
+	margin:0;
+	padding:0;
+}
+table{
+	border:1px solid #999;
+	margin:0 auto;
+	width:99.8%;
+}
+tr{
+	height:35px;	
+}
+tr:hover{
+	background:#ddd;
+}
+th{
+	border:1px solid #999;
+	text-align:center;
+}td{
+	border:1px solid #999;
+	text-align:center;
+}
+form{
+	padding-top:10px;	
+	margin:0 auto;
+}
+
+label{
+	display: block;
+	margin-bottom: 10px;
+}
+input[type="text"],input[type="password"],input[type="number"]{
+	width:200px;
+	height:24px;
+	font-size:18px;
+	font-family:Arial,"微软雅黑","黑体","宋体";
+	line-height:30px;
+	text-align:center;
+}
+select{
+	width:100px;
+	height:33px;
+	font-size:18px;
+	font-family:Arial,"微软雅黑","黑体","宋体";
+	line-height:30px;
+	text-align:center;
+}
+input[type="submit"]{
+	width:100px;
+	height:30px;
+	margin-bottom:10px;
+	font-size:18px;
+	font-family:Arial,"微软雅黑","黑体","宋体";
+}
+
+/* 标签定义 结束 */
+
+/* 类 开始 */
+
+.label_text{
+	display:inline-block;
+	width:120px;
+	text-align:right;
+	font-size:20px;
+	line-height:24px;
+}
+.checkbox{
+	margin-left:120px;
+	width:15px;
+	height:15px;
+}
+.radio{
+	margin-left:120px;
+	width:15px;
+	height:15px;
+}
+/*.one{
+	line-height:30px;
+	width:100%;
+	border-bottom:#ccc 1px solid;
+}
+.one li{
+	float:left;
+	text-align:center;
+	width:200px;
+}
+.one li:hover{
+	background:#ddd;
+}*/
+.manage{
+	clear:both;
+	text-align:center;
+}
+.login{
+	width:100%;
+	margin:100px auto;
+}
+/* 类 结束 */
+
+/* ID 开始 */
+#login{
+	margin:50px auto;
+	text-align:center;
+	width:450px;
+	height:200px;
+	border:1px solid #aaa;
+	padding-top:40px;
+	
+}
+#login input{
+	margin-bottom:20px;
+}
+#add_edit{
+	width:530px;
+	margin:0 auto;
+}
+
+#import{
+	padding:10px 0 10px 50px;
+}
+#main{
+	width:90%;
+	min-height:630px;
+	height:auto;
+	margin:0 auto;
+	padding-top:10px;
+}
+#submit{
+	width:500px;
+	text-align:center;	
+}
+#header{
+	width:100%;
+	height:100px;
+	background:#99CCFF;
+	margin-bottom:5px;
+}
+#logo{
+	float:left;
+	width:260px;
+	height:80px;
+	padding:10px;
+}
+#userInfo{
+	float:right;
+	font-size:24px;
+	font-family:"微软雅黑",Arial,"黑体","宋体";
+	line-height:80px;
+	padding:10px;
+}
+#menu{
+	background:#69F;
+	font-size:24px;
+	line-height:49px;
+	width:19.6%;
+	min-height:450px;
+	height:auto;
+	float:left;	
+	text-align:center;
+	margin-bottom:5px;
+}
+#menu li:first-child{
+	background:#06F;
+	display:block;
+	width:100%;
+	height:49px;
+	font-family:"黑体";
+	border-bottom:1px solid #bbb;
+}
+#menu a{
+	display:block;
+	margin:0 auto;
+	width:90%;
+	height:49px;
+	border-bottom:1px solid #bbb;
+}
+#menu a:hover{
+	background:#ccc;
+}
+#content{
+	background:#ABCDEF;
+	margin-left:20%;
+	width:80%;
+	min-height:450px;
+	height:auto;
+	margin-bottom:5px;
+}
+#content #add{
+	text-align:center;	
+}
+#content #add a{
+	line-height:30px;
+	letter-spacing: 10px;
+}
+#content #add a:hover{
+	background:#eee;
+}
+#page{
+	width:100%;
+	text-align:center;
+	padding-top:10px;	
+	padding-bottom:10px;	
+}
+#search{
+	min-height:50px;
+	height:auto;	
+	text-align:center;
+}
+#search select,label,input{
+	display:inline-block;
+	margin-left:10px;	
+}
+#footer{
+	background:#99CCFF;
+	clear:both;
+	margin:0 auto;
+	line-height:40px;
+	text-align:center;
+	width:100%;
+	height:80px;
+}
+/* ID 结束 */

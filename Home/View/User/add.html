@@ -1,0 +1,123 @@
+<extend name="base/base" />
+<block name="title"><title>添加用户</title></block>
+<block name="mycss">
+	<load href="__PUBLIC__/css/controller/{$Think.CONTROLLER_NAME}.css" />
+</block>
+
+<block name="content">
+	<form action="{:U(ACTION_NAME)}" method="post">
+		<div class="container-fluid">
+			<div class="row">
+				<label class="col-xs-5 col-sm-4 text-right">真实姓名</label>
+				<div class="col-xs-7 col-sm-4">
+					<input type="text" name="realname" value="" required />
+				</div>
+	   		</div>
+	   		
+	   		<div class="row">
+				<label class="col-xs-5 col-sm-4 text-right">身份证</label>
+				<div class="col-xs-7 col-sm-4">
+					<input type="text" name="card" value="" required />
+				</div>
+	   		</div>
+	   		
+	   		<div class="row">
+				<label class="col-xs-5 col-sm-4 text-right">重复身份证</label>
+				<div class="col-xs-7 col-sm-4">
+					<input type="text" name="card2" value="" required />
+				</div>
+	   		</div>
+	   		
+	   		<div class="row">
+				<label class="col-xs-5 col-sm-4 text-right">V网短号</label>
+				<div class="col-xs-7 col-sm-4">
+					<input type="text" name="vtel" value="" />
+				</div>
+	   		</div>
+	   		
+	   		<div class="row">
+				<label class="col-xs-5 col-sm-4 text-right">手机长号</label>
+				<div class="col-xs-7 col-sm-4">
+					<input type="text" name="fulltel" value="" />
+				</div>
+	   		</div>
+	   		
+	   		<div class="row">
+				<label class="col-xs-5 col-sm-4 text-right">办公室座机</label>
+				<div class="col-xs-7 col-sm-4">
+					<input type="text" name="otel" value="" />
+				</div>
+	   		</div>
+	   		
+	   		<div class="row">
+				<label class="col-xs-5 col-sm-4 text-right">家庭座机</label>
+				<div class="col-xs-7 col-sm-4">
+					<input type="text" name="hometel" value="" />
+				</div>
+	   		</div>
+	   		
+	   		<div class="row">
+				<label class="col-xs-5 col-sm-4 text-right">亲属号码</label>
+				<div class="col-xs-7 col-sm-4">
+					<input type="text" name="familytel" value="" />
+				</div>
+	   		</div>
+	   		
+	   		<div class="row">
+				<label class="col-xs-5 col-sm-4 text-right">邮箱/QQ</label>
+				<div class="col-xs-7 col-sm-4">
+					<input type="text" name="mail" value="" />
+				</div>
+	   		</div>
+	   		
+	   		<present name="clist">
+	        	<div class="row">
+	        		<label class="col-xs-5 col-sm-4 text-right">所属企业</label>
+	            </div>
+	            
+	            <volist name="clist" id="one">
+					<div class="row">
+						<label class="col-xs-5 col-sm-4 text-right"></label>
+						<label class="col-xs-7 col-sm-6">
+							<input type="radio" name="cid" value="{$one['cid']}" />
+							{$one['cname']}
+						</label>
+					</div>
+	            </volist>
+	        <else />
+	            <input type="hidden" name="cid" value="{:session('cid')}" />
+	        </present>
+	        
+	        <div class="row">
+        		<label class="col-xs-5 col-sm-4 text-right">所属用户组</label>
+            </div>
+            
+            <div class="row">
+        		<volist name="glist" id="one">
+        			<label class="col-xs-5 col-sm-4 text-right"></label>
+		            <label class="col-xs-7 col-sm-6 add">
+		                <input type="checkbox" name="gid[]" value="{$one['id']}" />{$one['title']}
+		            </label>
+		        </volist>
+            </div>
+            
+            <div class="row">
+				<label class="col-xs-5 col-sm-4 text-right">状态</label>
+				<div class="col-xs-7 col-sm-4">
+					<select name="status">
+						<option value="1">正常</option>
+						<option value="0">禁用</option>
+					</select>
+				</div>
+	   		</div>
+	   		
+	   		<div class="row">
+		    	<div class="col-xs-5 col-sm-4"></div>
+		    	<div class="col-xs-6 col-sm-4">
+		    		<input type="submit" class="btn btn-info btn-block" value="提交" />
+		    	</div>
+			</div>
+	    </div>
+	</form>
+
+</block>

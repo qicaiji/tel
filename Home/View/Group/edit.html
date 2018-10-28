@@ -1,0 +1,78 @@
+<extend name="base/base" />
+<block name="title"><title>修改用户组</title></block>
+<block name="mycss">
+	<load href="__PUBLIC__/css/controller/{$Think.CONTROLLER_NAME}.css" />
+</block>
+<block name="content">
+	<form action="{:U(ACTION_NAME)}" method="post">
+		<!-- 用户组ID： -->
+		<input type="hidden" name="id" value="{$one['id']}" />
+
+		<div class="container-fluid">
+			<div class="row">
+				<label class="col-xs-3 col-sm-4 text-right">组名称：</label>
+				<div class="col-xs-8 col-sm-4">
+					<input type="text" name="title" value="{$one['title']}" />
+				</div>
+	   		</div>
+	   		
+	   		<div class="row">
+				<label class="col-xs-3 col-sm-4 text-right">状态：</label>
+				<div class="col-xs-8 col-sm-4">
+					<if condition="$one['status'] eq '1'">
+						<assign name="selected" value="selected" />
+					</if> 
+					<select name="status">
+						<option value="0">禁用</option>
+						<option value="1" {$selected}>正常</option>
+					</select>
+				</div>
+	   		</div>
+	   		
+	   		<div class="row">
+				<label class="col-xs-3 col-sm-4 text-right">所属企业：</label>
+				<div class="col-xs-8 col-sm-4">
+					<select name="cid">
+						<if condition="session('gids') eq 1">
+							<option value="0">公共</option>
+						</if>
+						<volist name="clist" id="vo">
+							<if condition="$vo['cid'] eq $one['cid']">
+								<assign name="selected" value="selected" />
+							<else />
+								<assign name="selected" value="" />
+							</if> 
+							<option value="{$vo.cid}" {$selected}>{$vo.cname}</option>
+						</volist>
+					</select>
+				</div>
+	   		</div>
+	   		
+	   		<div class="row">
+				<label class="col-xs-3 col-sm-4 text-right">组权限：</label>
+	   		</div>
+	   		
+	   		<volist name="rlist" id="rlist">
+		   		<div class="row">
+					<label class="col-xs-3 col-sm-4"></label>
+	                <assign name="checked" value="" />
+	                <if condition="in_array($rlist[id],$grlist)">
+	                    <assign name="checked" value="checked" />
+	                </if>
+	    			
+	                <label class="col-xs-8 col-sm-7">
+	                    <input type="checkbox" name="rule[]" value="{$rlist.id}" {$checked} />
+	                    {$rlist.title}：{$rlist.name}
+	                </label>
+		   		</div>
+	   		</volist>
+	    
+	    	<div class="row">
+		    	<div class="col-xs-2 col-sm-3"></div>
+		    	<div class="col-xs-6 col-sm-4">
+		    		<input type="submit" class="btn btn-info btn-block" value="提交" />
+		    	</div>
+   			</div>
+   		</div>
+	</form>
+</block>

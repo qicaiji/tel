@@ -1,0 +1,224 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* 标签定义 开始 */
+
+@media(max-width:768px){
+	/*   移动终端       */
+	body{
+		background:#eee;
+		font-size:12px;
+		line-height:1.333em;
+		margin:0;
+		font-family:Arial,Helvetica, sans-serif;"微软雅黑", 
+	}
+}
+
+@media(min-width:768px){
+	/*   PC终端       */
+	body{
+		background:#eee;
+		font-size:18px;
+		line-height:1.333em;
+		margin:0;
+		font-family:Arial,Helvetica, sans-serif;"微软雅黑", 
+	}
+}
+
+a{
+	color:blue;
+	text-decoration:none;
+}
+a:hover{
+	color:red;
+}
+a:active{
+	background:#aaa;
+}
+
+ul{
+	display:block;
+	margin:0;
+	padding:0;
+	list-style-type:none;
+}
+li{
+	margin:0;
+	padding:0;
+}
+
+table{
+	border:1px solid #999;
+	margin:0 auto;
+	width:99.8%;
+}
+tr{
+	height:1.8em;	
+}
+tr:hover{
+	background:#ddd;
+}
+th{
+	border:1px solid #999;
+	text-align:center;
+}td{
+	border:1px solid #999;
+	text-align:center;
+}
+
+form{
+	padding-top:10px;	
+	margin:0 auto;
+}
+label{
+	display: block;
+	margin-bottom: 10px;
+}
+input{
+	width:100%;
+	height:1.6em;
+	line-height:1.4em;
+	text-align:center;
+	margin-bottom: 10px;
+}
+input[type="submit"]{
+	height:2.4em;
+}
+select{
+	width:100%;
+	height:1.6em;
+	line-height:1.4em;
+	text-align:center;
+}
+
+/* 标签定义 结束 */
+
+/* 类 开始 */
+
+.label_text0{
+	display:inline-block;
+	width:200px;
+	text-align:right;
+}
+
+.checkbox{
+	margin-left: 150px;
+	display: block;
+}
+.checkbox input{
+	width:15px;
+	height:15px;
+}
+
+#rule_checkbox{
+	display: block;
+}
+.rule_checkbox input{
+	width:15px;
+	height:15px;
+}
+
+.radio{
+	margin-left: 150px;
+	display: block;
+}
+.radio input{
+	width:15px;
+	height:15px;
+}
+
+.manage{
+	clear:both;
+	text-align:center;
+}
+
+/* 类 结束 */
+
+/* ID 开始 */
+#header{
+	background:#ddd;
+}
+
+#userInfo{
+	text-align: right;
+	font-size:1.3em;
+	font-family:Arial,"微软雅黑","黑体","宋体";
+	line-height:80px;
+}
+
+#menu{
+	background:666;
+	font-size:1.6em;
+	line-height:1.8em;
+	text-align:center;
+	border-bottom:3px solid #ccc;
+}
+#menu a{
+	display:block;
+	margin:0 auto;
+}
+#menu a:hover{
+	background:#ccc;
+}
+
+#login_form{
+	margin:3em auto;
+}
+
+#add_edit0{
+	width:530px;
+	margin:0 auto;
+}
+
+#import{
+	text-align: center;
+	padding:10px 0 10px 50px;
+}
+
+#submit{
+	width:500px;
+	text-align:center;
+}
+
+#content{
+	background:#ABCDEF;
+	background:none;
+	width:100%;
+	min-height:300px;
+	margin-bottom:5px;
+}
+#content #add{
+	text-align:center;	
+}
+#content #add a{
+	line-height:30px;
+	letter-spacing: 10px;
+}
+#content #add a:hover{
+	background:#eee;
+}
+#page{
+	width:100%;
+	text-align:center;
+	padding-top:10px;	
+	padding-bottom:10px;	
+}
+#search{
+	min-height:50px;
+	height:auto;	
+	text-align:center;
+}
+#search select,label,input{
+/*	display:inline-block;	*/
+/*	margin-left:10px;	*/	
+}
+#footer{
+	background:#99CCFF;
+	clear:both;
+	margin:0 auto;
+	line-height:40px;
+	text-align:center;
+	width:100%;
+	height:80px;
+}
+/* ID 结束 */
