@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50524
 File Encoding         : 65001
 
-Date: 2018-10-28 15:44:20
+Date: 2018-10-28 15:48:00
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -290,45 +290,6 @@ CREATE TABLE `telbook_tel` (
 -- ----------------------------
 -- Records of telbook_tel
 -- ----------------------------
-INSERT INTO `telbook_tel` VALUES ('199', '221', '111', '111', '111', '111', '111', '111', '1498702120');
-INSERT INTO `telbook_tel` VALUES ('200', '222', '666666', null, null, null, null, null, '1498702844');
-INSERT INTO `telbook_tel` VALUES ('201', '223', '612269', '13458876269', '3990992', null, null, null, '1498702844');
-INSERT INTO `telbook_tel` VALUES ('202', '224', '612888', '13990522888', '3942753', null, null, null, '1498702844');
-INSERT INTO `telbook_tel` VALUES ('203', '225', null, '13458899304', null, null, null, null, '1498702844');
-INSERT INTO `telbook_tel` VALUES ('204', '226', '640629', '13890589629', null, null, null, null, '1498702844');
-INSERT INTO `telbook_tel` VALUES ('205', '227', null, '13678321207', '3942911', null, null, null, '1498702844');
-INSERT INTO `telbook_tel` VALUES ('206', '228', '612588', '15883272588', '3916198', null, null, '2918479846', '1498702844');
-INSERT INTO `telbook_tel` VALUES ('207', '229', '612634', '13629001634', null, null, null, '1598309217', '1498702844');
-INSERT INTO `telbook_tel` VALUES ('208', '230', '612566', '13568012566', null, null, null, null, '1498702844');
-INSERT INTO `telbook_tel` VALUES ('209', '231', '612266', '15908358226', '3942341', null, null, null, '1498702844');
-INSERT INTO `telbook_tel` VALUES ('210', '232', '612222', '13990522751', null, null, null, '261014450', '1498702844');
-INSERT INTO `telbook_tel` VALUES ('211', '233', '612565', '13981430565', null, null, null, '843656540', '1498702844');
-INSERT INTO `telbook_tel` VALUES ('212', '234', '612815', '13568027815', null, null, null, '1312919247', '1498702844');
-INSERT INTO `telbook_tel` VALUES ('213', '235', '670573', '18783280573', null, null, null, '1150472507', '1498702844');
-INSERT INTO `telbook_tel` VALUES ('214', '236', '612465', '15828827465', null, null, null, '1106589882', '1498702844');
-INSERT INTO `telbook_tel` VALUES ('215', '237', '612937', '15283276937', null, null, null, '314982167', '1498702844');
-INSERT INTO `telbook_tel` VALUES ('216', '238', '612941', '15983261941', null, null, null, '674605210', '1498702844');
-INSERT INTO `telbook_tel` VALUES ('217', '239', '612461', '13696031461', null, null, null, '569828243', '1498702844');
-INSERT INTO `telbook_tel` VALUES ('218', '240', null, '18040422157', null, null, null, '523582190', '1498702844');
-INSERT INTO `telbook_tel` VALUES ('219', '241', '612790', '15984281790', null, null, null, '395053432', '1498702844');
-INSERT INTO `telbook_tel` VALUES ('220', '242', null, '18181606570', null, null, null, '1670319775', '1498702844');
-INSERT INTO `telbook_tel` VALUES ('221', '243', '670990', '15908250990', null, null, null, '294112970', '1498702844');
-INSERT INTO `telbook_tel` VALUES ('222', '244', null, '13730787361', null, null, null, '503358453', '1498702844');
-INSERT INTO `telbook_tel` VALUES ('223', '245', '642137', '13438645137', null, null, null, '654060824', '1498702844');
-INSERT INTO `telbook_tel` VALUES ('224', '246', '622227', '15884851927', null, null, null, '278064586', '1498702844');
-INSERT INTO `telbook_tel` VALUES ('225', '247', '612761', '18280911761', null, null, null, '417511655', '1498702844');
-INSERT INTO `telbook_tel` VALUES ('226', '248', '670550', '18990590280', null, null, null, '176160413', '1498702844');
-INSERT INTO `telbook_tel` VALUES ('227', '249', '612939', '13890503939', null, null, null, '1760925317', '1498702844');
-INSERT INTO `telbook_tel` VALUES ('228', '250', '612141', '15828845141', null, null, null, '819151771', '1498702844');
-INSERT INTO `telbook_tel` VALUES ('229', '251', '612175', '13890503175', null, null, null, '1397633084', '1498702844');
-INSERT INTO `telbook_tel` VALUES ('230', '252', '612189', '13989104789', null, null, null, '284584909', '1498702844');
-INSERT INTO `telbook_tel` VALUES ('231', '253', '620601', '15808320601', null, null, null, '954599086', '1498702844');
-INSERT INTO `telbook_tel` VALUES ('232', '254', '612275', '13628130275', null, null, null, '369949674', '1498702844');
-INSERT INTO `telbook_tel` VALUES ('233', '255', '66778', '13548327478', null, null, null, '37008321', '1498702844');
-INSERT INTO `telbook_tel` VALUES ('234', '256', '612333', '13628131668', '3945535', null, null, '36140659', '1498702844');
-INSERT INTO `telbook_tel` VALUES ('235', '257', '13890520679', '13890520679', '13890520679', '13890520679', '13890520679', '13890520679', '1499003411');
-INSERT INTO `telbook_tel` VALUES ('236', '258', '15884283875', '15884283875', '15884283875', '15884283875', '15884283875', '15884283875', '1499003451');
-INSERT INTO `telbook_tel` VALUES ('237', '259', '13890520679', '13890520679', '13890520679', '111', '111', '111', '1499003515');
 
 -- ----------------------------
 -- Table structure for `telbook_user`
